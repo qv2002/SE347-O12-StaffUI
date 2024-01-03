@@ -83,10 +83,10 @@ function AddAccount() {
                         {/* <h1 className="text-center text-xl font-bold leading-tight tracking-tight text-gray-900  md:text-2xl">
                             ĐĂNG KÝ TÀI KHOẢN
                         </h1> */}
-                        <div className="mt-4 flex">
-                            <div className="mr-8 flex w-1/2 flex-col space-y-2 text-lg">
-                                <div className="form-group flex flex-col ">
-                                    <label htmlFor="name" className="mb-1 select-none  font-semibold text-gray-900  ">
+                        <div className="mt-4 flex flex-col sm:flex-row">
+                            <div className="mr-8 flex w-full sm:w-1/2 md:w-1/3 flex-col space-y-2 text-base sm:text-lg md:text-xl">
+                                <div className="form-group flex flex-col">
+                                    <label htmlFor="name" className="mb-1 select-none font-semibold text-gray-900 text-base sm:text-lg md:text-xl">
                                         Tên nhân viên
                                     </label>
                                     <input
@@ -94,7 +94,7 @@ function AddAccount() {
                                         name="name"
                                         id="name"
                                         className={clsx(
-                                            'focus:ring-primary-600 focus:border-primary-600 block w-full rounded-lg border border-gray-300  p-2.5 text-gray-900    sm:text-sm',
+                                            'focus:ring-primary-600 focus:border-primary-600 block w-full rounded-lg border border-gray-300 p-2.5 text-gray-900 text-base sm:text-sm md:text-lg',
                                             {
                                                 invalid: bacsicForm.touched.name && bacsicForm.errors.name,
                                             }
@@ -112,8 +112,9 @@ function AddAccount() {
                                         {bacsicForm.errors.name || 'No message'}
                                     </span>
                                 </div>
+
                                 <div className="form-group flex flex-col">
-                                    <label htmlFor="email" className="mb-1 select-none  font-semibold text-gray-900  ">
+                                    <label htmlFor="email" className="mb-1 select-none font-semibold text-gray-900 text-base sm:text-lg md:text-xl">
                                         Địa chỉ email
                                     </label>
                                     <input
@@ -121,7 +122,7 @@ function AddAccount() {
                                         name="email"
                                         id="email"
                                         className={clsx(
-                                            'focus:ring-primary-600 focus:border-primary-600 block w-full rounded-lg border border-gray-300  p-2.5 text-gray-900    sm:text-sm',
+                                            'focus:ring-primary-600 focus:border-primary-600 block w-full rounded-lg border border-gray-300 p-2.5 text-gray-900 text-base sm:text-sm md:text-lg',
                                             {
                                                 invalid: bacsicForm.touched.email && bacsicForm.errors.email,
                                             }
@@ -140,15 +141,18 @@ function AddAccount() {
                                     </span>
                                 </div>
                                 <div className="form-group flex flex-col">
-                                    <label className="mb-1 select-none  font-semibold text-gray-900 " htmlFor="role">
+                                    <label htmlFor="role" className="mb-1 select-none font-semibold text-gray-900 text-base sm:text-lg md:text-xl">
                                         Chức vụ
                                     </label>
 
                                     <AccountRoleInput
                                         id="role"
-                                        className={clsx('text-input cursor-pointer py-[5px]', {
-                                            invalid: bacsicForm.touched.role && bacsicForm.errors.role,
-                                        })}
+                                        className={clsx(
+                                            'text-input cursor-pointer py-[5px] text-base sm:text-sm md:text-lg',
+                                            {
+                                                invalid: bacsicForm.touched.role && bacsicForm.errors.role,
+                                            }
+                                        )}
                                         onChange={bacsicForm.handleChange}
                                         onBlur={bacsicForm.handleBlur}
                                         value={bacsicForm.values.role}
@@ -164,12 +168,9 @@ function AddAccount() {
                                     </span>
                                 </div>
                             </div>
-                            <div className="mr-8 flex w-1/2 flex-col space-y-2 text-lg">
-                                <div className="form-group flex flex-col ">
-                                    <label
-                                        htmlFor="username"
-                                        className="mb-1 select-none  font-semibold text-gray-900  "
-                                    >
+                            <div className="mr-8 flex w-full sm:w-1/2 md:w-1/3 flex-col space-y-2 text-base sm:text-lg md:text-xl">
+                                <div className="form-group flex flex-col">
+                                    <label htmlFor="username" className="mb-1 select-none font-semibold text-gray-900 text-base sm:text-lg md:text-xl">
                                         Tài khoản
                                     </label>
                                     <input
@@ -177,7 +178,7 @@ function AddAccount() {
                                         name="username"
                                         id="username"
                                         className={clsx(
-                                            'focus:ring-primary-600 focus:border-primary-600 block w-full rounded-lg border border-gray-300  p-2.5 text-gray-900    sm:text-sm',
+                                            'focus:ring-primary-600 focus:border-primary-600 block w-full rounded-lg border border-gray-300 p-2.5 text-gray-900 text-base sm:text-sm md:text-lg',
                                             {
                                                 invalid: bacsicForm.touched.username && bacsicForm.errors.username,
                                             }
@@ -196,22 +197,19 @@ function AddAccount() {
                                     </span>
                                 </div>
 
-                                <div className="form-group flex flex-col ">
-                                    <label
-                                        htmlFor="password"
-                                        className="mb-1 select-none  font-semibold text-gray-900  "
-                                    >
+                                <div className="form-group flex flex-col">
+                                    <label htmlFor="password" className="mb-1 select-none font-semibold text-gray-900 text-base sm:text-lg md:text-xl">
                                         Mật khẩu
                                     </label>
                                     <input
                                         type="password"
                                         name="password"
                                         id="password"
+                                        className="focus:ring-primary-600 focus:border-primary-600 block w-full rounded-lg border border-gray-300 p-2.5 text-gray-900 text-base sm:text-sm md:text-lg"
                                         onChange={bacsicForm.handleChange}
                                         onBlur={bacsicForm.handleBlur}
                                         value={bacsicForm.values.password}
                                         placeholder="Mật khẩu"
-                                        className="focus:ring-primary-600 focus:border-primary-600 block w-full rounded-lg border border-gray-300  p-2.5 text-gray-900     sm:text-sm"
                                     />
                                     <span
                                         className={clsx('text-sm text-red-500 opacity-0', {
@@ -224,7 +222,7 @@ function AddAccount() {
                                 <div className="form-group flex flex-col ">
                                     <label
                                         htmlFor="RePassword"
-                                        className="mb-1 select-none  font-semibold text-gray-900  "
+                                        className="mb-1 select-none font-semibold text-gray-900 text-base sm:text-lg md:text-xl"
                                     >
                                         Nhập lại mật khẩu
                                     </label>
@@ -236,7 +234,7 @@ function AddAccount() {
                                         onBlur={bacsicForm.handleBlur}
                                         value={bacsicForm.values.RePassword}
                                         placeholder="Nhập lại mật khẩu"
-                                        className="focus:ring-primary-600 focus:border-primary-600 block w-full rounded-lg border border-gray-300  p-2.5 text-gray-900     sm:text-sm"
+                                        className="focus:ring-primary-600 focus:border-primary-600 block w-full rounded-lg border border-gray-300 p-2.5 text-gray-900 text-base sm:text-sm md:text-lg"
                                     />
                                     <span
                                         className={clsx('text-sm text-red-500 opacity-0', {
@@ -249,9 +247,9 @@ function AddAccount() {
                                 </div>
                             </div>
                         </div>
-                        <div className="mt-4 flex">
+                        <div className="mt-4 flex flex-col sm:flex-row">
                             <div className="form-group mr-4 mt-3 flex basis-1/2 flex-col ">
-                                <label className="mb-1 cursor-default select-none text-lg font-semibold">
+                                <label className="mb-1 cursor-default select-none text-lg sm:text-xl md:text-2xl font-semibold">
                                     Ngày thêm
                                 </label>
                                 <div className="rounded border border-slate-300 bg-slate-50 px-2 outline-none">
@@ -260,7 +258,7 @@ function AddAccount() {
                             </div>
                             {/* PRICE */}
                         </div>
-                        <div className="mt-6 flex items-center justify-between border-t pt-6">
+                        <div className="mt-6 flex flex-col sm:flex-row items-center justify-between border-t pt-6">
                             <div
                                 className={clsx('flex items-center text-blue-500', {
                                     invisible: !loading,
@@ -269,7 +267,7 @@ function AddAccount() {
                                 <i className="fa-solid fa-spinner animate-spin text-xl"></i>
                                 <span className="text-lx pl-3 font-medium">Đang tạo sản phẩm</span>
                             </div>
-                            <div className="flex">
+                            <div className="flex mt-4 sm:mt-0">
                                 <Link to={'/product'} className="btn btn-red btn-md">
                                     <span className="pr-2">
                                         <i className="fa-solid fa-circle-xmark"></i>

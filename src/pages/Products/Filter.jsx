@@ -109,7 +109,7 @@ function Filter({ onChange, hasFilters = false }) {
         <Popover className="relative mr-2">
             <Popover.Button
                 className={clsx(
-                    'btn btn-md h-full !min-w-0 bg-slate-200 !px-3 text-slate-600 outline-none hover:bg-slate-300',
+                    'btn btn-md h-full !min-w-0 bg-slate-200 !px-3 sm:!px-4 md:!px-5 text-slate-600 outline-none hover:bg-slate-300',
                     {
                         '!bg-blue-500 !text-white hover:!bg-blue-600': hasFilters,
                     }
@@ -120,12 +120,12 @@ function Filter({ onChange, hasFilters = false }) {
 
             <Popover.Panel
                 as="div"
-                className="absolute right-0 z-10 min-w-[280px] rounded border bg-white px-4 py-3 shadow"
+                className="absolute right-0 z-10 min-w-[280px] sm:min-w-[320px] md:min-w-[360px] rounded border bg-white px-4 py-3 shadow"
             >
-                <h2 className="mb-2 text-lg font-semibold">Lọc sản phẩm</h2>
+                <h2 className="mb-2 text-lg sm:text-xl md:text-2xl font-semibold">Lọc sản phẩm</h2>
 
                 <hr />
-                <div className="my-3 space-y-3">
+                <div className="my-3 space-y-3 sm:space-y-4 md:space-y-5">
                     <div>
                         <div className="mb-1 font-semibold">Loại sản phẩm</div>
                         <Listbox
@@ -137,17 +137,17 @@ function Filter({ onChange, hasFilters = false }) {
                         >
                             <Listbox.Button
                                 as="div"
-                                className="text-input flex min-h-[36px] cursor-pointer items-center"
+                                className="text-input flex min-h-[36px] sm:min-h-[40px] md:min-h-[44px] cursor-pointer items-center"
                             >
                                 <div className="mr-2 flex-[1]">{`Đã chọn (${selectedProductTypes.length})`}</div>
                                 <i className="fa-solid fa-chevron-down"></i>
                             </Listbox.Button>
-                            <Listbox.Options className="absolute top-full right-0 left-0 z-50 rounded-md border bg-white text-lg shadow">
+                            <Listbox.Options className="absolute top-full right-0 left-0 z-50 rounded-md border bg-white text-lg sm:text-xl md:text-2xl shadow">
                                 {productTypes.map((type) => (
                                     <Listbox.Option
                                         key={type._id}
                                         value={type}
-                                        className="cursor-pointer border-t px-3 py-1 hover:text-blue-500"
+                                        className="cursor-pointer border-t px-3 sm:px-4 md:px-5 py-1 sm:py-2 md:py-3 hover:text-blue-500"
                                     >
                                         {({ selected }) => (
                                             <div className="flex items-center">
@@ -164,78 +164,70 @@ function Filter({ onChange, hasFilters = false }) {
                             </Listbox.Options>
                         </Listbox>
                     </div>
-                    <div>
-                        <div className="mb-1 font-semibold" htmlFor="quantityStart">
-                            Khoảng giá
-                        </div>
-                        <div className="flex items-center">
-                            <div className="flex flex-1 flex-col">
+
+                    <div className="flex flex-col sm:flex-row items-center">
+                        <div className="flex flex-1 flex-col">
                                 <PriceInput
                                     id="filterPriceFrom"
                                     value={priceFrom}
                                     onChange={(e) => setPriceFrom(e.target.value)}
                                     placeholder="Từ"
+                                    className="text-input py-1 sm:py-2 md:py-3"
                                 />
                             </div>
-                            <div className="px-1">-</div>
+                            <div className="px-1 sm:px-2 md:px-3">-</div>
                             <div className="flex flex-1 flex-col">
                                 <PriceInput
                                     id="filterPriceTo"
                                     value={priceTo}
                                     onChange={(e) => setPriceTo(e.target.value)}
                                     placeholder="Đến"
+                                    className="text-input py-1 sm:py-2 md:py-3"
                                 />
                             </div>
                         </div>
-                    </div>
-                    <div>
-                        <div className="mb-1 font-semibold" htmlFor="quantity">
-                            Số lượng
-                        </div>
-                        <div className="flex items-center">
+                        <div className="flex flex-col sm:flex-row items-center">
                             <div className="flex flex-1 flex-col">
                                 <input
                                     type="number"
-                                    className="text-input py-1"
+                                    className="text-input py-1 sm:py-2 md:py-3"
                                     value={quantityFrom}
                                     onChange={(e) => setQuantityFrom(e.target.value)}
                                     placeholder="Từ"
                                 />
                             </div>
-                            <div className="px-1">-</div>
+                            <div className="px-1 sm:px-2 md:px-3">-</div>
                             <div className="flex flex-1 flex-col">
                                 <input
                                     type="number"
-                                    className="text-input py-1"
+                                    className="text-input py-1 sm:py-2 md:py-3"
                                     value={quantityTo}
                                     onChange={(e) => setQuantityTo(e.target.value)}
                                     placeholder="Đến"
                                 />
                             </div>
                         </div>
+                        <div className="mt-4 sm:mt-5 md:mt-6 flex justify-end border-t pt-3 sm:pt-4 md:pt-5">
+                            <button
+                                className="btn btn-red btn-md sm:btn-lg md:btn-xl"
+                                onClick={() => {
+                                    handleClearFilters();
+                                    onChange({});
+                                }}
+                            >
+                                <span className="pr-2">
+                                    <i className="fa-solid fa-circle-xmark"></i>
+                                </span>
+                                <span>Xoá lọc</span>
+                            </button>
+                            <button type="submit" className="btn btn-blue btn-md sm:btn-lg md:btn-xl" onClick={() => onChange(filters)}>
+                                <span className="pr-2">
+                                    <i className="fa-solid fa-circle-plus"></i>
+                                </span>
+                                <span>Lọc</span>
+                            </button>
+                        </div>
                     </div>
-                </div>
-
-                <div className="mt-4 flex justify-end border-t pt-3">
-                    <button
-                        className="btn btn-red btn-md"
-                        onClick={() => {
-                            handleClearFilters();
-                            onChange({});
-                        }}
-                    >
-                        <span className="pr-2">
-                            <i className="fa-solid fa-circle-xmark"></i>
-                        </span>
-                        <span>Xoá lọc</span>
-                    </button>
-                    <button type="submit" className="btn btn-blue btn-md" onClick={() => onChange(filters)}>
-                        <span className="pr-2">
-                            <i className="fa-solid fa-circle-plus"></i>
-                        </span>
-                        <span>Lọc</span>
-                    </button>
-                </div>
             </Popover.Panel>
         </Popover>
     );

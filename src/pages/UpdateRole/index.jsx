@@ -132,10 +132,10 @@ function UpdateRole() {
     }
 
     return (
-        <div className="container h-[100%] min-w-[790px]">
-            <form className="mx-auto max-w-[800px]" onSubmit={roleForm.handleSubmit}>
-                <div className="mt-5 flex items-center justify-center space-x-4">
-                    <div className="w-[300px]">
+        <div className="container h-full sm:min-w-[650px] md:min-w-[790px]">
+            <form className="mx-auto sm:max-w-[600px] md:max-w-[800px]" onSubmit={roleForm.handleSubmit}>
+                <div className="mt-5 flex flex-col sm:flex-row items-center justify-center space-x-0 sm:space-x-4">
+                    <div className="w-full sm:w-[300px]">
                         <label htmlFor="role-name" className="mb-2 inline-block font-semibold">
                             Chức vụ:
                         </label>
@@ -159,7 +159,7 @@ function UpdateRole() {
                             {roleForm.errors.name || 'No message'}
                         </span>
                     </div>
-                    <div className="flex-1">
+                    <div className="mt-4 sm:mt-0 flex-1">
                         <label htmlFor="role-description" className="mb-2 inline-block font-semibold">
                             Mô tả chức vụ:
                         </label>
@@ -185,7 +185,7 @@ function UpdateRole() {
                     </div>
                 </div>
 
-                <div className="mt-5 flex flex-row justify-center">
+                <div className="mt-5 flex flex-col sm:flex-row justify-center">
                     <div className="m-auto !h-[400px] w-full overflow-y-scroll rounded border border-gray-300 px-5 py-5 text-lg">
                         {functions.map((func, index) => (
                             <div
@@ -209,8 +209,8 @@ function UpdateRole() {
                     </div>
                 </div>
 
-                <div className="mt-5 flex items-center justify-between">
-                    <div className="flex cursor-pointer items-center text-lg">
+                <div className="mt-5 flex flex-col sm:flex-row items-center justify-between">
+                    <div className="flex cursor-pointer items-center text-lg mb-4 sm:mb-0">
                         <input
                             type="checkbox"
                             className="accent-blue-500"
@@ -223,9 +223,9 @@ function UpdateRole() {
                         </label>
                     </div>
 
-                    <div className="flex">
+                    <div className="flex flex-col sm:flex-row">
                         <div
-                            className={clsx('mr-3 flex items-center text-blue-500', {
+                            className={clsx('mb-4 sm:mb-0 mr-0 sm:mr-3 flex items-center text-blue-500', {
                                 invisible: !loading,
                             })}
                         >

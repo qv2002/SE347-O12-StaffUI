@@ -57,17 +57,17 @@ function AddProductType() {
 
     return (
         <>
-            <div className="container min-w-[650px]">
+            <div className="container min-w-full sm:min-w-[650px]">
                 <div className="w-full">
                     <form
                         onSubmit={bacsicForm.handleSubmit}
-                        className="mx-[15%]  rounded-xl border border-slate-300 p-5"
+                        className="mx-2 sm:mx-[15%] rounded-xl border border-slate-300 p-5"
                     >
-                        <div className="mt-10 flex select-none  items-center justify-center">
+                        <div className="mt-10 flex select-none items-center justify-center">
                             {/* Name */}
                             <div className="flex w-full flex-col space-y-2 text-lg">
                                 <div className="form-group flex flex-col ">
-                                    <label className="mb-1 select-none  font-semibold" htmlFor="name">
+                                    <label className="mb-1 select-none font-semibold" htmlFor="name">
                                         Tên loại sản phẩm
                                     </label>
                                     <input
@@ -102,7 +102,7 @@ function AddProductType() {
                             </div>
                         </div>
 
-                        <div className="mt-6 flex items-center justify-between border-t pt-6">
+                        <div className="mt-6 flex flex-col sm:flex-row items-center justify-between border-t pt-6">
                             <div
                                 className={clsx('flex items-center text-blue-500', {
                                     invisible: !loading,
@@ -111,7 +111,7 @@ function AddProductType() {
                                 <i className="fa-solid fa-spinner animate-spin text-xl"></i>
                                 <span className="text-lx pl-3 font-medium">Đang tạo thông tin loại sản phẩm</span>
                             </div>
-                            <div className="flex">
+                            <div className="flex mt-4 sm:mt-0">
                                 <Link to={'/product-type'} className="btn btn-red btn-md">
                                     <span className="pr-2">
                                         <i className="fa-solid fa-circle-xmark"></i>
@@ -120,7 +120,7 @@ function AddProductType() {
                                 </Link>
                                 <button
                                     type="submit"
-                                    className="btn btn-blue btn-md"
+                                    className="btn btn-blue btn-md ml-4"
                                     disabled={!bacsicForm.dirty || loading}
                                 >
                                     <span className="pr-2">

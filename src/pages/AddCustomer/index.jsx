@@ -65,11 +65,11 @@ function AddCustomer() {
     return (
         <>
             <div className="container">
-                <div className="w-full">
+                <div className="w-full sm:w-3/4 md:w-1/2">
                     <form onSubmit={bacsicForm.handleSubmit}>
-                        <div className="mt-4 flex">
+                        <div className="mt-4 flex flex-col sm:flex-row">
                             {/* Name */}
-                            <div className="mr-8 flex w-1/2 flex-col space-y-2 text-lg">
+                            <div className="mr-8 flex w-full sm:w-1/2 flex-col space-y-2 text-base sm:text-lg md:text-xl">
                                 <div className="form-group flex flex-col ">
                                     <label className="mb-1 select-none font-semibold " htmlFor="name">
                                         Tên khách hàng
@@ -77,7 +77,7 @@ function AddCustomer() {
                                     <input
                                         type="text"
                                         id="name"
-                                        className={clsx('text-input py-[5px]', {
+                                        className={clsx('text-input py-[5px] text-base sm:text-sm md:text-lg', {
                                             invalid: bacsicForm.touched.name && bacsicForm.errors.name,
                                         })}
                                         onChange={bacsicForm.handleChange}
@@ -96,13 +96,13 @@ function AddCustomer() {
                                 </div>
 
                                 <div className="form-group flex flex-col">
-                                    <label className="mb-1 select-none font-semibold " htmlFor="phone">
+                                    <label className="mb-1 select-none font-semibold text-base sm:text-lg md:text-xl" htmlFor="phone">
                                         Số điện thoại
                                     </label>
                                     <input
                                         type="text"
                                         id="phone"
-                                        className={clsx('text-input w-full py-[5px]', {
+                                        className={clsx('text-input w-full py-[5px] text-base sm:text-sm md:text-lg', {
                                             invalid: bacsicForm.touched.phone && bacsicForm.errors.phone,
                                         })}
                                         onChange={bacsicForm.handleChange}
@@ -120,11 +120,11 @@ function AddCustomer() {
                                     </span>
                                 </div>
 
-                                <div className="form-group flex basis-1/2 flex-col ">
-                                    <label className="mb-1 cursor-default select-none text-lg font-semibold ">
+                                <div className="form-group flex flex-col sm:flex-row basis-1/2">
+                                    <label className="mb-1 cursor-default select-none text-lg sm:text-xl md:text-2xl font-semibold ">
                                         Ngày thêm
                                     </label>
-                                    <div className="text-input disabled select-none">
+                                    <div className="text-input disabled select-none text-base sm:text-sm md:text-lg">
                                         <TimeNow />
                                     </div>
                                 </div>
@@ -132,16 +132,16 @@ function AddCustomer() {
                         </div>
 
                         {/* DATE AND PRICE */}
-                        <div className="mt-4 flex">
+                        <div className="mt-4 flex flex-col sm:flex-row">
                             <div className="mt-3 flex w-full flex-col">
-                                <label className="mb-1 select-none text-lg font-semibold " htmlFor="address">
+                                <label className="mb-1 select-none text-lg sm:text-xl md:text-2xl font-semibold " htmlFor="address">
                                     Địa chỉ
                                 </label>
                                 <div className="relative">
                                     <input
                                         type="text"
                                         id="address"
-                                        className={clsx('text-input w-full py-[5px]', {
+                                        className={clsx('text-input w-full py-[5px] text-base sm:text-sm md:text-lg', {
                                             invalid: bacsicForm.touched.address && bacsicForm.errors.address,
                                         })}
                                         onChange={bacsicForm.handleChange}
@@ -161,16 +161,16 @@ function AddCustomer() {
                             </div>
                         </div>
 
-                        <div className="mt-6 flex items-center justify-between border-t pt-6">
+                        <div className="mt-6 flex flex-col sm:flex-row items-center justify-between border-t pt-6">
                             <div
                                 className={clsx('flex items-center text-blue-500', {
                                     invisible: !loading,
                                 })}
                             >
-                                <i className="fa-solid fa-spinner animate-spin text-xl"></i>
+                                <i className="fa-solid fa-spinner animate-spin text-xl sm:text-2xl md:text-3xl"></i>
                                 <span className="text-lx pl-3 font-medium">Đang tạo thông tin khách hàng</span>
                             </div>
-                            <div className="flex">
+                            <div className="flex mt-4 sm:mt-0">
                                 <Link to={'/customer'} className="btn btn-red btn-md">
                                     <span className="pr-2">
                                         <i className="fa-solid fa-circle-xmark"></i>

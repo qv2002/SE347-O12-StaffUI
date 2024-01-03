@@ -42,33 +42,33 @@ function DetailCustomer() {
     return (
         <div className="container">
             <div className="wrapper">
-                <div className="mt-4 flex flex-row">
-                    <div className="mt-[4%] flex basis-1/2 flex-col">
+                <div className="mt-4 flex flex-col sm:flex-row">
+                    <div className="mt-[4%] flex flex-1 sm:basis-1/2 flex-col">
                         <label className="mb-1 cursor-default text-lg font-semibold">Mã khách hàng</label>
                         <div className="text-input disabled select-none py-[5px]">{customer.id}</div>
                     </div>
                 </div>
-
-                <div className="mt-2 flex flex-row">
-                    <div className="mt-2 flex basis-1/2 flex-col">
+        
+                <div className="mt-2 flex flex-col sm:flex-row">
+                    <div className="mt-2 flex flex-1 sm:basis-1/2 flex-col">
                         <label className="mb-1 cursor-default text-lg font-semibold" htmlFor="phone" defaultValue={0}>
                             Số điện thoại
                         </label>
                         <div className="text-input disabled select-none py-[5px]">{customer.phone}</div>
                     </div>
                 </div>
-
-                <div className="mt-2 flex flex-row">
-                    <div className="mt-2 flex basis-1/2 flex-col">
+        
+                <div className="mt-2 flex flex-col sm:flex-row">
+                    <div className="mt-2 flex flex-1 sm:basis-1/2 flex-col">
                         <label className="mb-1 cursor-default text-lg font-semibold" htmlFor="name">
                             Tên khách hàng
                         </label>
                         <div className="text-input disabled select-none py-[5px]">{customer.name}</div>
                     </div>
                 </div>
-
-                <div className="mt-4 flex flex-row">
-                    <div className="mr-2 mt-2 flex basis-1/2 flex-col">
+        
+                <div className="mt-4 flex flex-col sm:flex-row">
+                    <div className="mr-2 mt-2 flex flex-1 sm:basis-1/2 flex-col">
                         <label className="mb-1 cursor-default text-lg font-semibold" htmlFor="date">
                             Ngày thêm
                         </label>
@@ -77,18 +77,18 @@ function DetailCustomer() {
                         </div>
                     </div>
                 </div>
-
-                <div className="mt-4 flex flex-row">
-                    <div className="mr-2 mt-2 flex w-full flex-col">
+        
+                <div className="mt-4 flex flex-col sm:flex-row">
+                    <div className="mr-2 mt-2 flex w-full sm:basis-1/2 flex-col">
                         <label className="mb-1 cursor-default text-lg font-semibold" htmlFor="address">
                             Địa chỉ
                         </label>
                         <div className="text-input disabled select-none py-[5px]">{customer.address}</div>
                     </div>
                 </div>
-
-                <div className="float-right mt-8 mr-2 flex flex-row">
-                    <div className="float-left mr-5 flex basis-1 flex-col">
+        
+                <div className="float-right mt-8 mr-2 flex flex-col sm:flex-row">
+                    <div className="float-left mr-5 flex flex-1 sm:basis-1 flex-col">
                         <Link to={'/customer'} className="btn btn-blue btn-md">
                             <span className="pr-1">
                                 <i className="fa-solid fa-circle-xmark"></i>
@@ -96,8 +96,8 @@ function DetailCustomer() {
                             <span>Quay lại</span>
                         </Link>
                     </div>
-
-                    <div className="float-right flex basis-1 flex-col">
+        
+                    <div className="float-right flex flex-1 sm:basis-1 flex-col">
                         <Link
                             to={'/customer/update/' + customer.id}
                             className={clsx('btn btn-md btn-green', {

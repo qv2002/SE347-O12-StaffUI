@@ -104,11 +104,11 @@ function ProductType() {
 
     return (
         <>
-            <div className="container">
-                <div className="flex space-x-4">
-                    {/* tite + reload btn */}
-                    <div className="flex">
-                        <label className="text-2xl font-bold text-slate-800">Danh sách loại sản phẩm</label>
+           <div className="container mx-auto px-4 sm:px-6 md:px-8">
+                <div className="flex flex-col sm:flex-row space-x-0 sm:space-x-4">
+                    {/* title + reload btn */}
+                    <div className="flex items-center space-x-2">
+                        <label className="text-lg sm:text-xl md:text-2xl font-bold text-slate-800">Danh sách loại sản phẩm</label>
                         <button
                             type="button"
                             className="ml-3 text-gray-800 hover:underline"
@@ -122,12 +122,12 @@ function ProductType() {
                     </div>
 
                     {/* Action group */}
-                    <div className="flex grow">
+                    <div className="flex flex-grow mt-2 sm:mt-0">
                         {/* Search */}
-                        <div className="mr-2 flex grow">
+                        <div className="mr-2 flex flex-grow">
                             <input
                                 type="text"
-                                className="text-input grow"
+                                className="text-input flex-grow"
                                 onChange={(e) => {
                                     setSearch(e.target.value);
                                 }}
@@ -137,7 +137,7 @@ function ProductType() {
 
                         <Link
                             to="/product-type/add"
-                            className={clsx('btn btn-md btn-green', {
+                            className={clsx('btn btn-md sm:btn-lg md:btn-xl btn-green', {
                                 hidden: isHiddenItem('product-type/create'),
                             })}
                         >
@@ -149,18 +149,19 @@ function ProductType() {
                     </div>
                 </div>
 
+
                 {/* LIST */}
                 <table className="mt-8 w-full">
                     <thead className="w-full rounded bg-blue-500 text-white">
-                        <tr className="flex  h-11 w-full">
+                        <tr className="flex h-11 w-full">
                             <th className="flex w-20 items-center justify-end px-2">Mã số</th>
-                            <th className="flex flex-[1] items-center justify-start pl-28">Tên loại sản phẩm</th>
-                            <th className="flex flex-[1] items-center justify-start px-2">Ngày thêm</th>
-                            <th className="flex w-[200px] min-w-[200px] max-w-[200px] items-center justify-center px-2"></th>
+                            <th className="flex flex-1 sm:flex-2 md:flex-3 items-center justify-start pl-28">Tên loại sản phẩm</th>
+                            <th className="flex flex-1 sm:flex-2 md:flex-3 items-center justify-start px-2">Ngày thêm</th>
+                            <th className="flex w-48 sm:w-64 md:w-80 items-center justify-center px-2"></th>
                         </tr>
                     </thead>
 
-                    <tbody className="flex h-[75vh] w-full flex-col" style={{ overflowY: 'overlay' }}>
+                    <tbody className="flex h-[75vh] w-full flex-col overflow-y-scroll">
                         {productTypes
                             ?.filter((productType) => {
                                 if (search === '') {
@@ -190,23 +191,23 @@ function ProductType() {
                                     </td>
 
                                     <td
-                                        className="flex flex-[1] items-center justify-start pl-28"
+                                        className="flex flex-1 sm:flex-2 md:flex-3 items-center justify-start pl-28"
                                         onClick={() => linkToDetail(productType.id)}
                                     >
                                         {productType.name}
                                     </td>
 
                                     <td
-                                        className="flex flex-[1] items-center justify-start px-2"
+                                        className="flex flex-1 sm:flex-2 md:flex-3 items-center justify-start px-2"
                                         onClick={() => linkToDetail(productType.id)}
                                     >
                                         {moment(productType.createdAt).format('HH:mm:ss DD/MM/YYYY ')}
                                     </td>
-                                    <td className="flex w-[200px] min-w-[200px] max-w-[200px] items-center justify-center px-2 py-2">
+                                    <td className="flex w-48 sm:w-64 md:w-80 items-center justify-center px-2 py-2">
                                         <div className="flex justify-end">
                                             <Link
                                                 to={'/product-type/update/' + productType.id}
-                                                className={clsx('btn btn-sm btn-blue', {
+                                                className={clsx('btn btn-sm sm:btn-md md:btn-lg btn-blue', {
                                                     hidden: isHiddenItem('product-type/update'),
                                                 })}
                                             >
@@ -216,14 +217,12 @@ function ProductType() {
                                                 <span>Sửa</span>
                                             </Link>
                                             <button
-                                                className={clsx('btn btn-sm btn-red', {
+                                                className={clsx('btn btn-sm sm:btn-md md:btn-lg btn-red', {
                                                     hidden: isHiddenItem('product-type/delete'),
                                                 })}
                                                 onClick={() => {
-                                                    {
-                                                        setShowDeleteDialog(true);
-                                                        setDeletingProductTypeId(productType.id);
-                                                    }
+                                                    setShowDeleteDialog(true);
+                                                    setDeletingProductTypeId(productType.id);
                                                 }}
                                             >
                                                 <span className="pr-1">
@@ -248,7 +247,7 @@ function ProductType() {
                     }
                 )}
             >
-                <div className="">
+                <div className="w-full sm:w-3/4 md:w-1/2 lg:w-1/3 xl:w-1/4 mx-auto">
                     <div className="min-w-[160px] max-w-[400px] rounded-lg bg-white p-6">
                         <div className="text-clr-text-dark font-bold">Bạn có chắc chắn muốn xoá không?</div>
                         <p className="mt-4">Lưu ý: Bạn không thể không phục lại sau khi xoá!</p>

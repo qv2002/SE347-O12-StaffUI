@@ -95,11 +95,11 @@ function ProductsView() {
     }
 
     return (
-        <div className="container">
-            <div className="flex space-x-4">
-                {/* tite + reload btn */}
-                <div className="flex">
-                    <label className="text-2xl font-bold text-slate-800">Danh sách cây</label>
+        <div className="container mx-auto px-4 sm:px-6 md:px-8">
+            <div className="flex flex-col sm:flex-row space-x-0 sm:space-x-4">
+                {/* title + reload btn */}
+                <div className="flex items-center space-x-2">
+                    <label className="text-lg sm:text-xl md:text-2xl font-bold text-slate-800">Danh sách cây</label>
                     <button type="button" className="ml-3 text-gray-800 hover:underline" onClick={() => callApi()}>
                         <span className="font-sm pr-1">
                             <i className="fa fa-refresh" aria-hidden="true"></i>
@@ -107,39 +107,39 @@ function ProductsView() {
                         <span className="">Tải lại</span>
                     </button>
                 </div>
-
+        
                 {/* Action group */}
-                <div className="flex grow">
+                <div className="flex flex-grow mt-2 sm:mt-0">
                     {/* Search */}
-                    <div className="mr-2 flex grow">
+                    <div className="mr-2 flex flex-grow">
                         <input
                             type="text"
-                            className="text-input grow"
+                            className="text-input flex-grow"
                             onChange={(e) => {
                                 setSearch(e.target.value);
                             }}
                             placeholder="Tìm kiếm sản phẩm"
                         />
                     </div>
-
+        
                     <Popover className="relative mr-2">
-                        <Popover.Button className="btn btn-md h-full !min-w-0 bg-slate-200 !px-3 text-slate-600 outline-none hover:bg-slate-300">
+                        <Popover.Button className="btn btn-md h-full !min-w-0 bg-slate-200 !px-3 sm:!px-4 md:!px-5 text-slate-600 outline-none hover:bg-slate-300">
                             <i className="fas fa-filter"></i>
                         </Popover.Button>
-
+        
                         <Popover.Panel
                             as="div"
-                            className="absolute right-0 z-10 min-w-[280px] max-w-[320px] rounded border bg-white px-4 py-3 shadow"
+                            className="absolute right-0 z-10 min-w-[280px] sm:min-w-[320px] md:min-w-[360px] rounded border bg-white px-4 py-3 shadow"
                         >
-                            <h2 className="mb-2 text-lg font-semibold">Lọc sản phẩm</h2>
-
+                            <h2 className="mb-2 text-lg sm:text-xl md:text-2xl font-semibold">Lọc sản phẩm</h2>
+        
                             <hr />
-                            <div className="mt-3 space-x-2">
+                            <div className="mt-3 space-x-2 sm:space-x-3 md:space-x-4">
                                 <div>
                                     <Listbox value={selectedProductTypes} onChange={setSelectedProductTypes} multiple>
                                         <Listbox.Button
                                             as="div"
-                                            className="text-input flex min-h-[36px] cursor-pointer items-center"
+                                            className="text-input flex min-h-[36px] sm:min-h-[40px] md:min-h-[44px] cursor-pointer items-center"
                                         >
                                             <div className="mr-2 flex-1">{`Loại cây (${selectedProductTypes.length})`}</div>
                                             <i className="fa-solid fa-chevron-down"></i>
@@ -169,7 +169,8 @@ function ProductsView() {
                             </div>
                         </Popover.Panel>
                     </Popover>
-                    <Link to="/product/" className="btn btn-md btn-green">
+
+                    <Link to="/product/" className="btn btn-md sm:btn-lg md:btn-xl btn-green">
                         <span className="pr-1">
                             <i className="fa fa-share"></i>
                         </span>
@@ -177,7 +178,7 @@ function ProductsView() {
                     </Link>
                     <Link
                         to="/product/add"
-                        className={clsx('btn btn-md btn-green', {
+                        className={clsx('btn btn-md sm:btn-lg md:btn-xl btn-green', {
                             hidden: isHiddenItem('product/create'),
                         })}
                     >
@@ -187,67 +188,66 @@ function ProductsView() {
                         <span>Thêm cây mới</span>
                     </Link>
                 </div>
-            </div>
-            <div className="flex h-[85vh] flex-col overflow-scroll">
-                {' '}
-                <div className="grid grid-cols-4 gap-4">
-                    {products
-                        .filter((product) => {
-                            if (search === '') {
-                                return product;
-                            } else {
-                                if (
-                                    removeVietnameseTones(product.name.toLowerCase()).includes(
-                                        removeVietnameseTones(search.toLowerCase())
-                                    ) ||
-                                    removeVietnameseTones(product?.type.name.toLowerCase()).includes(
-                                        removeVietnameseTones(search.toLowerCase())
-                                    )
-                                ) {
-                                    var id = product.id.toString();
-                                    return product.id.toString().includes(id);
+                <div className="flex h-[85vh] flex-col overflow-scroll">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+                        {products
+                            .filter((product) => {
+                                if (search === '') {
+                                    return product;
+                                } else {
+                                    if (
+                                        removeVietnameseTones(product.name.toLowerCase()).includes(
+                                            removeVietnameseTones(search.toLowerCase())
+                                        ) ||
+                                        removeVietnameseTones(product?.type.name.toLowerCase()).includes(
+                                            removeVietnameseTones(search.toLowerCase())
+                                        )
+                                    ) {
+                                        var id = product.id.toString();
+                                        return product.id.toString().includes(id);
+                                    }
                                 }
-                            }
-                        })
+                            })
 
-                        .map((product) => (
-                            <div key={product.id} className=" cursor-pointer select-none  rounded border ">
-                                <img className=" w-[300px] py-2 text-center" src={product.image} />
-                                <h1 className="py-2 text-center">{product.type?.name || '-'}</h1>
-                                <h1
-                                    className={clsx('h-[64px] py-2 text-center', {
-                                        'line-through': product.quantity === 0,
-                                    })}
-                                >
-                                    {product.name}
-                                </h1>
-                                <h1 className="py-2 text-center">
-                                    {product.price.toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}
-                                </h1>
-                                <div className="flex justify-center">
-                                    <button
-                                        className={clsx('btn btn-sm btn-blue', {
-                                            hidden: isHiddenItem('product/update'),
+                            .map((product) => (
+                                <div key={product.id} className="cursor-pointer select-none rounded border">
+                                    <img className="w-full sm:w-[150px] md:w-[300px] py-2 text-center" src={product.image} />
+                                    <h1 className="py-2 text-center">{product.type?.name || '-'}</h1>
+                                    <h1
+                                        className={clsx('h-[64px] py-2 text-center', {
+                                            'line-through': product.quantity === 0,
                                         })}
                                     >
-                                        <span className="pr-1">
-                                            <i className="fa-solid fa-pen-to-square"></i>
-                                        </span>
-                                        <span>Sửa</span>
-                                    </button>
-                                    <button
-                                        className={clsx('btn btn-sm btn-red', {
-                                            hidden: isHiddenItem('product/delete'),
-                                        })}
-                                    >
-                                        <span className="pr-1">
-                                            <i className="fa-solid fa-circle-xmark"></i>
-                                        </span>
-                                        <span>Xoá</span>
-                                    </button>
+                                        {product.name}
+                                    </h1>
+                                    <h1 className="py-2 text-center">
+                                        {product.price.toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}
+                                    </h1>
+                                    <div className="flex justify-center">
+                                        <button
+                                            className={clsx('btn btn-sm sm:btn-md md:btn-lg btn-blue', {
+                                                hidden: isHiddenItem('product/update'),
+                                            })}
+                                        >
+                                            <span className="pr-1">
+                                                <i className="fa-solid fa-pen-to-square"></i>
+                                            </span>
+                                            <span>Sửa</span>
+                                        </button>
+                                        <button
+                                            className={clsx('btn btn-sm sm:btn-md md:btn-lg btn-red', {
+                                                hidden: isHiddenItem('product/delete'),
+                                            })}
+                                        >
+                                            <span className="pr-1">
+                                                <i className="fa-solid fa-circle-xmark"></i>
+                                            </span>
+                                            <span>Xoá</span>
+                                        </button>
+                                    </div>
                                 </div>
-                            </div>
-                        ))}
+                            ))}
+                    </div>
                 </div>
             </div>
         </div>

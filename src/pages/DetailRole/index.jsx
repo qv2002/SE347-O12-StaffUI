@@ -47,10 +47,10 @@ function DetailRole() {
     }
 
     return (
-        <div className="container h-[100%] min-w-[790px]">
-            <div className="mx-auto max-w-[800px]">
-                <div className="mt-5 flex items-center justify-center space-x-4">
-                    <div className="w-[300px]">
+        <div className="container h-full min-w-full sm:min-w-[790px]">
+            <div className="mx-auto max-w-full sm:max-w-[800px]">
+                <div className="mt-5 flex flex-col sm:flex-row items-center justify-center space-x-0 sm:space-x-4">
+                    <div className="w-full sm:w-[300px]">
                         <div className="mb-2 inline-block font-semibold">Chức vụ:</div>
                         <div className="text-input disabled w-full py-[5px]">{role?.name}</div>
                         <span className="opacity-0">--</span>
@@ -61,8 +61,8 @@ function DetailRole() {
                         <span className="opacity-0">--</span>
                     </div>
                 </div>
-
-                <div className="mt-5 flex flex-row justify-center">
+        
+                <div className="mt-5 flex flex-col sm:flex-row justify-center">
                     <div className="m-auto !h-[400px] w-full overflow-y-scroll rounded border border-gray-300 px-5 py-5 text-lg">
                         {functions.map((func, index) => (
                             <div
@@ -77,7 +77,7 @@ function DetailRole() {
                                     checked={isChecked(func._id)}
                                     onChange={() => {}}
                                 />
-
+        
                                 <label htmlFor={'function-input-' + func._id} className="block flex-1 py-3 pl-8 ">
                                     {func.displayName}
                                 </label>
@@ -85,16 +85,16 @@ function DetailRole() {
                         ))}
                     </div>
                 </div>
-
-                <div className="mt-5 flex items-center justify-end">
-                    <div className="flex">
-                        <Link to={'/role/'} className="btn btn-blue btn-md">
+        
+                <div className="mt-5 flex flex-col sm:flex-row items-center justify-end">
+                    <div className="flex flex-col sm:flex-row">
+                        <Link to={'/role/'} className="btn btn-blue btn-md mb-2 sm:mb-0 sm:mr-2">
                             <span className="pr-1">
                                 <i className="fa-solid fa-circle-xmark"></i>
                             </span>
                             <span className="">Quay lại</span>
                         </Link>
-
+        
                         <Link to={'/role/update/' + role?.id} className="btn btn-green btn-md">
                             <span className="pr-1">
                                 <i className="fa-solid fa-pen-to-square"></i>

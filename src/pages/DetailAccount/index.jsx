@@ -27,13 +27,13 @@ function DetailAccount() {
     return (
         <>
             <div className="container">
-                <div className="w-full">
+                <div className="w-full sm:w-3/4 md:w-1/2 mx-auto">
                     <form>
                         {/* <h1 className="text-center text-xl font-bold leading-tight tracking-tight text-gray-900  md:text-2xl">
                         ĐĂNG KÝ TÀI KHOẢN
                     </h1> */}
-                        <div className="mt-4 flex">
-                            <div className="mr-8 flex w-1/2 flex-col space-y-2 text-lg">
+                        <div className="mt-4 flex flex-col sm:flex-row">
+                            <div className="mr-8 flex w-full sm:w-1/2 flex-col space-y-2 text-lg">
                                 <div className="form-group flex flex-col ">
                                     <label className="mb-1 select-none  font-semibold text-gray-900  ">
                                         Tên nhân viên
@@ -54,7 +54,7 @@ function DetailAccount() {
                                     <div className="text-input disabled select-none py-[5px]">{account.role?.name}</div>
                                 </div>
                             </div>
-                            <div className="mr-8 flex w-1/2 flex-col space-y-2 text-lg">
+                            <div className="mr-8 flex w-full sm:w-1/2 flex-col space-y-2 text-lg">
                                 <div className="form-group flex flex-col ">
                                     <label
                                         htmlFor="account"
@@ -85,8 +85,8 @@ function DetailAccount() {
                                 </div>
                             </div>
                         </div>
-                        <div className="mt-4 flex">
-                            <div className="form-group mr-4 mt-3 flex basis-1/2 flex-col ">
+                        <div className="mt-4 flex flex-col sm:flex-row">
+                            <div className="form-group mr-4 mt-3 flex w-full sm:w-1/2 flex-col ">
                                 <label className="mb-1 cursor-default select-none text-lg font-semibold">
                                     Ngày thêm
                                 </label>
@@ -96,8 +96,8 @@ function DetailAccount() {
                             </div>
                             {/* PRICE */}
                         </div>
-                        <div className="float-right mt-8 mr-2 flex flex-row">
-                            <div className="float-left mr-5 flex basis-1 flex-col">
+                        <div className="float-right mt-8 mr-2 flex flex-col sm:flex-row">
+                            <div className="float-left mr-5 flex w-full sm:w-1/2 flex-col">
                                 <Link to={'/account'} className="btn btn-blue btn-md">
                                     <span className="pr-1">
                                         <i className="fa-solid fa-circle-xmark"></i>
@@ -106,7 +106,7 @@ function DetailAccount() {
                                 </Link>
                             </div>
 
-                            <div className="float-right flex basis-1 flex-col">
+                            <div className="float-right flex w-full sm:w-1/2 flex-col">
                                 <Link to={'/account/update/' + account.id} className="btn btn-md btn-green">
                                     <span className="pr-2">
                                         <i className="fa fa-share" aria-hidden="true"></i>

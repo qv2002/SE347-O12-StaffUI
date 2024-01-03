@@ -44,24 +44,24 @@ function DetailOrder() {
 
     return (
         <div className="container">
-            <div className="mt-5 flex space-x-6" ref={componentRef}>
+            <div className="mt-5 flex flex-col sm:flex-row space-x-0 sm:space-x-6" ref={componentRef}>
                 {/* PRODUCT */}
                 <div className="flex-1">
                     <table className="mt-2 w-full">
                         <thead className="w-full rounded bg-blue-500 text-white">
                             <tr className="flex h-11 w-full">
-                                <th className="flex w-10 items-center justify-end px-2 text-center">Mã</th>
+                                <th className="flex w-10 items-center justify-end px-2 text-center sm:text-left">Mã</th>
                                 <th className="flex w-16 items-center justify-center px-2">Ảnh</th>
                                 <th className="flex flex-1 items-center justify-start px-2">Tên sản phẩm</th>
-                                <th className="flex w-28 items-center justify-end px-2">Giá (VND)</th>
-                                <th className="mr-2 flex w-24 items-center justify-end px-2">Số lượng</th>
+                                <th className="flex w-28 items-center justify-end px-2 sm:text-right">Giá (VND)</th>
+                                <th className="mr-2 flex w-24 items-center justify-end px-2 sm:text-right">Số lượng</th>
                             </tr>
                         </thead>
-
+        
                         <tbody className="flex h-[400px] w-full flex-col" style={{ overflowY: 'overlay' }}>
                             {detailOrder?.map((detail, index) => (
                                 <tr key={index} className="flex border-b border-slate-200 hover:bg-slate-100">
-                                    <td className="flex w-10 items-center justify-end px-2 py-2">
+                                    <td className="flex w-10 items-center justify-end px-2 py-2 sm:text-left">
                                         {detail.product?.id}
                                     </td>
                                     <td className="flex w-16 items-center justify-center px-2 py-2">
@@ -73,10 +73,10 @@ function DetailOrder() {
                                     <td className="flex flex-[2] items-center justify-start px-2 py-2">
                                         {detail.product?.name}
                                     </td>
-                                    <td className="flex w-28 items-center justify-end px-2 py-2">
+                                    <td className="flex w-28 items-center justify-end px-2 py-2 sm:text-right">
                                         <PriceFormat>{detail.price || 0}</PriceFormat>
                                     </td>
-                                    <td className="mr-2 flex w-24 items-center justify-end px-2 py-2">
+                                    <td className="mr-2 flex w-24 items-center justify-end px-2 py-2 sm:text-right">
                                         {detail.quantity}
                                     </td>
                                 </tr>
@@ -88,19 +88,19 @@ function DetailOrder() {
                 {/* INFOR */}
                 <div className="flex-1">
                     <div className="space-y-2 border-b pb-2">
-                        <div className="text-lg">
+                        <div className="text-base sm:text-lg">
                             <span>Tên khách hàng: </span>
                             <span className="font-semibold">{order?.customer?.name || ''}</span>
                         </div>
-                        <div className="text-lg">
+                        <div className="text-base sm:text-lg">
                             <span>Số điện thoại: </span>
                             <span className="font-semibold">{order?.customer?.phone || ''}</span>
                         </div>
-                        <div className="text-lg">
+                        <div className="text-base sm:text-lg">
                             <span>Địa chỉ: </span>
                             <span className="font-semibold">{order?.customer?.address || ''}</span>
                         </div>
-                        <div className="text-lg">
+                        <div className="text-base sm:text-lg">
                             <span>Ngày lập hoá đơn: </span>
                             <span className="font-semibold">
                                 {moment(order.createdAt).format('HH:mm:ss DD/MM/YYYY ')}
@@ -109,7 +109,7 @@ function DetailOrder() {
                     </div>
 
                     <div className="mt-3 space-y-3 border-b pb-3">
-                        <div className="text-lg">
+                        <div className="text-base sm:text-lg">
                             <span>Tổng tiền: </span>
                             <span className="text-xl font-semibold text-blue-600">
                                 <span>
@@ -118,7 +118,7 @@ function DetailOrder() {
                                 <span> VNĐ</span>
                             </span>
                         </div>
-                        <div className="text-lg">
+                        <div className="text-base sm:text-lg">
                             <span>Giảm giá: </span>
                             <span className="text-xl font-semibold text-red-400">
                                 <span>
@@ -127,7 +127,7 @@ function DetailOrder() {
                                 <span> VNĐ</span>
                             </span>
                         </div>
-                        <div className="flex items-center text-lg">
+                        <div className="flex items-center text-base sm:text-lg">
                             <label className="mr-2" htmlFor="price">
                                 Thành tiền:
                             </label>
@@ -138,7 +138,7 @@ function DetailOrder() {
                                 <span> VNĐ</span>
                             </span>
                         </div>
-                        <div className="flex items-center text-lg">
+                        <div className="flex items-center text-base sm:text-lg">
                             <label className="mr-2" htmlFor="price">
                                 Tiền nhận:
                             </label>
@@ -149,7 +149,7 @@ function DetailOrder() {
                                 <span> VNĐ</span>
                             </span>
                         </div>
-                        <div className="text-lg">
+                        <div className="text-base sm:text-lg">
                             <span>Tiền thừa: </span>
                             <span className="text-xl font-semibold text-blue-500">
                                 <span>
@@ -161,12 +161,12 @@ function DetailOrder() {
                     </div>
                 </div>
             </div>
-            <div className=" flex justify-end">
-                <Link to="/order" className="btn btn-blue btn-md">
+            <div className="flex flex-col sm:flex-row justify-end space-y-2 sm:space-y-0 sm:space-x-2">
+                <Link to="/order" className="btn btn-blue btn-md w-full sm:w-auto">
                     Quay lại
                 </Link>
                 <ReactToPrint
-                    trigger={() => <button className="btn btn-green btn-md">In hoá đơn</button>}
+                    trigger={() => <button className="btn btn-green btn-md w-full sm:w-auto">In hoá đơn</button>}
                     content={() => componentRef.current}
                 />
             </div>

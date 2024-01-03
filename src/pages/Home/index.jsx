@@ -10,8 +10,8 @@ function Home() {
     const showLogoutNoti = () => toast.info('Đã đăng xuất!');
 
     return (
-        <div className="container flex h-full w-full items-center justify-center space-x-11">
-            <div className=" space-y-3 text-gray-600">
+        <div className="container flex flex-col sm:flex-row h-full w-full items-center justify-center sm:space-x-11 space-y-5 sm:space-y-0">
+            <div className="space-y-3 text-gray-600">
                 <p className="text-center text-4xl font-extrabold text-green-600">QUẢN LÝ</p>
                 <p className="text-center text-3xl font-bold text-green-600">CỬA HÀNG CÂY XANH</p>
                 <p className="text-xl font-bold">Nếu cần hỗ trợ kỹ thuật, vui lòng thực hiện một trong ba cách sau: </p>
@@ -45,7 +45,7 @@ function Home() {
                     <span>Đăng xuất</span>
                 </button>
             </div>
-            <img className="w-[40vw] " src="/home-img.jpg" />
+            <img className="w-full sm:w-[40vw] " src="/home-img.jpg" />
         </div>
     );
 }

@@ -81,8 +81,8 @@ function CustomerInput({ setIsValid }) {
     }, [customer]);
 
     return (
-        <form className="flex space-x-4 rounded-md border px-2 pt-2 shadow">
-            <div className="flex w-56 flex-col">
+        <form className="flex flex-col sm:flex-row space-y-4 sm:space-x-4 sm:space-y-0 rounded-md border px-2 pt-2 shadow">
+            <div className="flex w-full sm:w-56 flex-col">
                 <label className="mb-1 font-semibold" htmlFor="phone">
                     Số điện thoại
                 </label>
@@ -106,7 +106,7 @@ function CustomerInput({ setIsValid }) {
                     {formik.errors.phone || 'No message'}
                 </span>
             </div>
-            <div className="flex w-64 flex-col">
+            <div className="flex w-full sm:w-64 flex-col">
                 <label className="mb-1 font-semibold" htmlFor="name">
                     Tên khách hàng
                 </label>
@@ -131,7 +131,7 @@ function CustomerInput({ setIsValid }) {
                     {formik.errors.name || 'No message'}
                 </span>
             </div>
-            <div className="flex grow flex-col">
+            <div className="flex w-full sm:flex-grow flex-col">
                 <label className="mb-1 font-semibold" htmlFor="address">
                     Địa chỉ
                 </label>
