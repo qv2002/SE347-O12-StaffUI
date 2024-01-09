@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import { useSelector } from 'react-redux';
 import { accountSelector } from '../../../redux/selectors';
 
-function GroupMenu({ groupMenu }) {
+function GroupMenu({ groupMenu, setIsSidebarOpen}) {
     const [isOpen, setIsOpen] = useState(false);
     let MainComp = 'div';
     if (!groupMenu.children) {
@@ -56,7 +56,7 @@ function GroupMenu({ groupMenu }) {
                     }
                 )}
                 onClick={() => setIsOpen(!isOpen)}
-                to={!groupMenu.children ? groupMenu.main?.link : undefined}
+                to={!groupMenu.children ? groupMenu.main?.link : undefined} 
             >
                 <div className="flex items-center">
                     <span className="pr-2">
@@ -82,6 +82,7 @@ function GroupMenu({ groupMenu }) {
                                 })
                             }
                             to={groupMenu.main.link + item.link}
+                            onClick={() => setIsSidebarOpen(false)}
                         >
                             <span className="pr-2">
                                 <i className={item.iconClassname}></i>
