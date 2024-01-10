@@ -3,7 +3,7 @@ import Sidebar from "./components/Sidebar";
 
 function DefaultLayout({ heading, children }) {
     return (
-        <div className="flex h-screen">
+        <div className="flex h-screen flex-col sm:flex-row">
             <Sidebar></Sidebar>
 
             <div className="flex h-screen flex-1 flex-col">
