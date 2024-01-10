@@ -180,7 +180,7 @@ function Sidebar() {
             </svg>
         </header>
         {isSidebarOpen && (
-            <div className="fixed top-0 left-0 w-full h-full bg-blue-500">
+            <div className="sidebar fixed top-0 left-0 w-full h-full bg-blue-500">
                 <div className="sm:w-16 md:w-64 flex flex-col bg-blue-500">
                     <header className="mb-8 flex h-16 w-full select-none flex-col items-center justify-center text-white">
                         <div className="text-lg font-extrabold">QUẢN LÝ</div>
