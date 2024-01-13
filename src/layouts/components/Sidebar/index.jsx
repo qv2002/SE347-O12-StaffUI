@@ -156,7 +156,7 @@ function Sidebar() {
 
   return (
     <div className="flex h-full min-w-[280px] flex-col bg-blue-500">
-      <header className="justify-bot grid h-36 w-full select-none grid-cols-10 items-center gap-0 text-white">
+      <header className="mt-2 grid h-32 w-full select-none grid-cols-10 items-center justify-center gap-0 text-white">
         <div className="col-span-3 flex items-center justify-end">
           <div className="rounded-full  bg-slate-50 p-3">
             <img className="h-auto w-12  object-cover" src="/thegreen.png" alt="Logo" />
