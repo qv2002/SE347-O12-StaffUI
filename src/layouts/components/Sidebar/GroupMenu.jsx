@@ -50,11 +50,13 @@ function GroupMenu({ groupMenu, setIsSidebarOpen}) {
         >
             <MainComp
                 className={clsx(
-                    'flex cursor-pointer select-none  items-center justify-between rounded-md px-4 py-3 text-white hover:bg-blue-400',
+                    'flex cursor-pointer select-none  items-center justify-between rounded-md px-4 py-3 text-white hover:bg-green-400',
                     {
-                        'bg-blue-400': pathFirst === mainPath,
+                        'hover:bg-green-400': pathFirst !== mainPath,
+                        'bg-green-400': pathFirst === mainPath,
                     }
                 )}
+                
                 onClick={() => setIsOpen(!isOpen)}
                 to={!groupMenu.children ? groupMenu.main?.link : undefined} 
             >

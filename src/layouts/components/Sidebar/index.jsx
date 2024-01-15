@@ -161,14 +161,14 @@ function Sidebar() {
 
     return isSmallScreen ? (
         <>
-        <header className="flex h-16 items-center justify-between bg-blue-500 px-2">
-            <div className="text-lg font-extrabold text-white">QUẢN LÝ</div>
+        <header className="flex h-32 w-screen items-center justify-between px-2" style={{backgroundColor: '#005745'}}>
+            <div className="text-lg font-extrabold text-white">THE GREEN</div>
             <svg 
                 xmlns="http://www.w3.org/2000/svg" 
                 fill="none" 
                 viewBox="0 0 24 24" 
                 stroke="currentColor" 
-                className="h-6 w-6 text-white cursor-pointer" 
+                className="h-6 w-6 text-white cursor-pointer mr-4" 
                 onClick={() => setIsSidebarOpen(true)}
             >
                 <path 
@@ -180,14 +180,15 @@ function Sidebar() {
             </svg>
         </header>
         {isSidebarOpen && (
-            <div className="sidebar fixed top-0 left-0 w-full h-full bg-blue-500">
-                <div className="sm:w-16 md:w-64 flex flex-col bg-blue-500">
-                    <header className="mb-8 flex h-16 w-full select-none flex-col items-center justify-center text-white">
-                        <div className="text-lg font-extrabold">QUẢN LÝ</div>
-                        <div className="font-bold">CỬA HÀNG CÂY XANH</div>
-                    </header>
+            <div className="sidebar fixed top-0 left-0 w-screen h-full" style={{backgroundColor: '#054004'}}>
+                <div className="sm:w-16 md:w-64 flex flex-col" style={{backgroundColor: '#406442'}}>
+                <header className="mb-8 flex h-16 w-full select-none items-center justify-center text-white bg-white">
+                    <div className="bg-white rounded-full p-2">
+                        <img src="./../Logo.png" alt="Logo" className="h-24 w-auto" />
+                    </div>
+                </header>
 
-                    <ul className="flex flex-1 select-none flex-col space-y-0.5 p-2 " style={{ overflowY: 'overlay' }}>
+                    <ul className="flex flex-1 select-none flex-col space-y-0.5 p-2 " style={{ overflowY: 'overlay', backgroundColor: '#84bb54' }}>
                     {groupMenus.map((groupMenu, index) => (
                         <GroupMenu key={index} groupMenu={groupMenu} setIsSidebarOpen={setIsSidebarOpen} />
                     ))}
@@ -199,7 +200,7 @@ function Sidebar() {
                             <p className="text-sm">{account?.role?.name}</p>
                         </div>
                         <button
-                            className="btn btn-md w-full border border-white hover:bg-blue-400"
+                            className="btn btn-md w-full border border-white"
                             onClick={() => {
                                 dispatch(accountActions.logout());
                                 showLogoutNoti();
@@ -209,7 +210,7 @@ function Sidebar() {
                         </button>
                     </div>
                     <button
-                        className="absolute top-0 right-0 m-2 btn btn-md hover:bg-blue-400"
+                        className="absolute top-0 right-0 m-4 btn btn-md bg-gray-400 hover:bg-green-400"
                         onClick={() => setIsSidebarOpen(false)}
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-6 w-6 text-white">
@@ -222,13 +223,14 @@ function Sidebar() {
         
         </>
     ) : (
-        <div className="md:min-w-16 lg:min-w-[240px] flex flex-col bg-blue-500">
-            <header className="mb-8 flex h-16 w-full select-none flex-col items-center justify-center text-white">
-                <div className="text-lg font-extrabold">QUẢN LÝ</div>
-                <div className="font-bold">CỬA HÀNG CÂY XANH</div>
+        <div className="md:min-w-16 lg:min-w-[240px] flex flex-col" style={{backgroundColor: '#005745'}}>
+            <header className="mb-8 flex h-16 w-full select-none items-center justify-center text-white bg-white">
+                <div className="bg-white rounded-full p-2">
+                    <img src="./../Logo.png" alt="Logo" className="h-24 w-auto" />
+                </div>
             </header>
 
-            <ul className="flex flex-1 select-none flex-col space-y-0.5 p-2 " style={{ overflowY: 'overlay' }}>
+            <ul className="flex flex-1 select-none flex-col space-y-0.5 p-2 " style={{ overflowY: 'overlay', backgroundColor: '#84bb54' }}>
                 {groupMenus.map((groupMenu, index) => (
                     <GroupMenu key={index} groupMenu={groupMenu} />
                 ))}
@@ -240,7 +242,7 @@ function Sidebar() {
                     <p className="text-sm">{account?.role?.name}</p>
                 </div>
                 <button
-                    className="btn btn-md w-full border border-white hover:bg-blue-400"
+                    className="btn btn-md w-full border border-white hover:bg-green-400"
                     onClick={() => {
                         dispatch(accountActions.logout());
                         showLogoutNoti();

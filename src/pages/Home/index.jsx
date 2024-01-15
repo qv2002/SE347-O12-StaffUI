@@ -23,13 +23,13 @@ function Home() {
                     và gửi yêu cầu hỗ trợ.
                 </p>
                 <p className="text-lg">
-                    2. Gửi email cho phòng kỹ thuật: <span className="underline">20521154@gm.uit.edu.vn</span>
+                    2. Gửi email cho phòng kỹ thuật: <span className="underline">19522009@gm.uit.edu.vn</span>
                     {'.'}
                 </p>
                 <p className="text-lg ">
-                    3. Gọi HOTLINE hỗ trợ khách hàng: <span className="underline">0365011369</span>
+                    3. Gọi HOTLINE hỗ trợ khách hàng: <span className="underline">0987654321</span>
                     {', '}
-                    <span className="underline">0523011333</span>
+                    <span className="underline">0123456789</span>
                     {'.'}
                 </p>
                 <button
