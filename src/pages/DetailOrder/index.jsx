@@ -120,7 +120,7 @@ function DetailOrder() {
                         </div>
                         <div className="text-base sm:text-lg">
                             <span>Giảm giá: </span>
-                            <span className="text-xl font-semibold text-red-400">
+                            <span className="text-xl font-semibold text-blue-600">
                                 <span>
                                     <PriceFormat>{order?.discount || 0}</PriceFormat>
                                 </span>
@@ -131,7 +131,7 @@ function DetailOrder() {
                             <label className="mr-2" htmlFor="price">
                                 Thành tiền:
                             </label>
-                            <span className="text-2xl font-semibold text-green-600">
+                            <span className="text-2xl font-semibold text-blue-600">
                                 <span>
                                     <PriceFormat>{order?.totalPrice - (order?.discount || 0)}</PriceFormat>
                                 </span>
@@ -142,7 +142,7 @@ function DetailOrder() {
                             <label className="mr-2" htmlFor="price">
                                 Tiền nhận:
                             </label>
-                            <span className="text-xl font-semibold text-slate-400">
+                            <span className="text-xl font-semibold text-blue-600">
                                 <span>
                                     <PriceFormat>{order?.receivedMoney}</PriceFormat>
                                 </span>
@@ -150,7 +150,7 @@ function DetailOrder() {
                             </span>
                         </div>
                         <div className="text-base sm:text-lg">
-                            <span>Tiền thừa: </span>
+                            <span>Tiền trả lại: </span>
                             <span className="text-xl font-semibold text-blue-500">
                                 <span>
                                     <PriceFormat>{order?.exchangeMoney}</PriceFormat>

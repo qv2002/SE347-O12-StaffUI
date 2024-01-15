@@ -161,7 +161,7 @@ function Sidebar() {
 
     return isSmallScreen ? (
         <>
-        <header className="flex h-32 w-screen items-center justify-between px-2" style={{backgroundColor: '#005745'}}>
+        <header className="flex h-16 w-screen items-center justify-between px-2" style={{backgroundColor: '#005745'}}>
             <div className="text-lg font-extrabold text-white">THE GREEN</div>
             <svg 
                 xmlns="http://www.w3.org/2000/svg" 
@@ -183,7 +183,7 @@ function Sidebar() {
             <div className="sidebar fixed top-0 left-0 w-screen h-full" style={{backgroundColor: '#054004'}}>
                 <div className="sm:w-16 md:w-64 flex flex-col" style={{backgroundColor: '#406442'}}>
                 <header className="mb-8 flex h-16 w-full select-none items-center justify-center text-white bg-white">
-                    <div className="bg-white rounded-full p-2">
+                    <div className="bg-white rounded-full p-6 border border-gray-300">
                         <img src="./../Logo.png" alt="Logo" className="h-24 w-auto" />
                     </div>
                 </header>
@@ -210,10 +210,10 @@ function Sidebar() {
                         </button>
                     </div>
                     <button
-                        className="absolute top-0 right-0 m-4 btn btn-md bg-gray-400 hover:bg-green-400"
+                        className="absolute top-0 right-0 m-4 btn btn-sm hover:bg-green-400"
                         onClick={() => setIsSidebarOpen(false)}
                     >
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-6 w-6 text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-6 w-6 text-black">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                         </svg>
                     </button>
@@ -223,14 +223,14 @@ function Sidebar() {
         
         </>
     ) : (
-        <div className="md:min-w-16 lg:min-w-[240px] flex flex-col" style={{backgroundColor: '#005745'}}>
+        <div className="md:min-w-16 lg:min-w-[240px] flex flex-col" style={{backgroundColor: '#007e64 '}}>
             <header className="mb-8 flex h-16 w-full select-none items-center justify-center text-white bg-white">
-                <div className="bg-white rounded-full p-2">
+                <div className="bg-white rounded-full p-6 border border-gray-300">
                     <img src="./../Logo.png" alt="Logo" className="h-24 w-auto" />
                 </div>
             </header>
 
-            <ul className="flex flex-1 select-none flex-col space-y-0.5 p-2 " style={{ overflowY: 'overlay', backgroundColor: '#84bb54' }}>
+            <ul className="flex flex-1 select-none flex-col space-y-0.5 p-2 " style={{ overflowY: 'overlay'}}>
                 {groupMenus.map((groupMenu, index) => (
                     <GroupMenu key={index} groupMenu={groupMenu} />
                 ))}

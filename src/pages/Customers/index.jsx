@@ -74,7 +74,7 @@ function Customers() {
     }
     return (
         <>
-            <div className="container w-full sm:w-3/4 md:w-1/2 mx-auto">
+            <div className="container w-full sm:w-full md:w-full mx-auto">
                 <div className="flex flex-col sm:flex-row space-x-0 sm:space-x-4">
                     {/* title + reload btn */}
                     <div className="flex flex-col sm:flex-row space-x-0 sm:space-x-3">

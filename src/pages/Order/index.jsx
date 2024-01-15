@@ -170,12 +170,12 @@ function Orders() {
                 <div className="mt-8 w-full sm:w-full md:w-full">
                     <div className="rounded bg-blue-500 text-white">
                         <div className="flex h-11 w-full">
-                            <div className="flex w-16 items-center justify-end px-2">Mã</div>
-                            <div className="flex flex-[2] items-center justify-start px-4">Tên khách hàng</div>
-                            <div className="flex w-60 items-center justify-start px-2">Số điện thoại</div>
-                            <div className="flex w-44 items-center justify-end px-2">Tổng tiền (VNĐ)</div>
-                            <div className="flex w-56 items-center justify-end px-2">Ngày</div>
-                            <div className="flex w-[140px] items-center justify-center px-2"></div>
+                        <div className="flex w-16 items-center justify-end px-2">Mã</div>
+                        <div className="flex flex-[2] items-center justify-start px-4">Tên khách hàng</div>
+                        <div className="hidden sm:flex w-60 items-center justify-start px-2">Số điện thoại</div>
+                        <div className="hidden sm:flex w-44 items-center justify-end px-2">Tổng tiền (VNĐ)</div>
+                        <div className="hidden sm:flex w-56 items-center justify-end px-2">Ngày</div>
+                        <div className="flex w-[140px] items-center justify-center px-2"></div>
                         </div>
                     </div>
 
