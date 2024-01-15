@@ -40,26 +40,26 @@ function DetailTypeProduct() {
             });
     }
     return (
-        <div className="container">
-            <div className="wrapper mx-[10%] rounded-xl  border border-slate-300 p-5">
-                <div className="mt-4 flex flex-row">
-                    <div className="mt-[4%] flex w-full flex-col">
+        <div className="container mx-auto px-4 sm:px-6 md:px-8">
+            <div className="wrapper mx-[10%] rounded-xl border border-slate-300 p-5">
+                <div className="mt-4 flex flex-col sm:flex-row">
+                    <div className="mt-[4%] flex w-full sm:w-1/2 flex-col">
                         <label className="mb-1 cursor-default text-lg font-semibold">Mã loại sản phẩm</label>
                         <div className="text-input disabled select-none py-[5px]">{productType.id}</div>
                     </div>
                 </div>
-
-                <div className="mt-4 flex flex-row">
-                    <div className="mt-2 flex w-full flex-col">
+        
+                <div className="mt-4 flex flex-col sm:flex-row">
+                    <div className="mt-2 flex w-full sm:w-1/2 flex-col">
                         <label className="mb-1 cursor-default text-lg font-semibold" htmlFor="name">
                             Tên loại sản phẩm
                         </label>
                         <div className="text-input disabled select-none py-[5px]">{productType.name}</div>
                     </div>
                 </div>
-
-                <div className="mt-4 mb-4 flex flex-row">
-                    <div className="mt-2 flex w-full flex-col">
+        
+                <div className="mt-4 mb-4 flex flex-col sm:flex-row">
+                    <div className="mt-2 flex w-full sm:w-1/2 flex-col">
                         <label className="mb-1 cursor-default text-lg font-semibold" htmlFor="date">
                             Ngày thêm
                         </label>
@@ -68,9 +68,9 @@ function DetailTypeProduct() {
                         </div>
                     </div>
                 </div>
-
-                <div className="mt-6 flex items-center justify-end border-t pt-6">
-                    <Link to={'/product-type'} className="btn btn-blue btn-md">
+        
+                <div className="mt-6 flex flex-col sm:flex-row items-center justify-end border-t pt-6">
+                    <Link to={'/product-type'} className="btn btn-blue btn-md mb-2 sm:mb-0 sm:mr-2">
                         <span className="pr-1">
                             <i className="fa-solid fa-circle-xmark"></i>
                         </span>

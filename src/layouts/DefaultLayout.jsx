@@ -3,12 +3,12 @@ import Sidebar from "./components/Sidebar";
 
 function DefaultLayout({ heading, children }) {
     return (
-        <div className="flex h-screen">
+        <div className="flex h-screen flex-col sm:flex-row">
             <Sidebar></Sidebar>
 
             <div className="flex h-screen flex-1 flex-col">
                 <Header>{heading}</Header>
-                <main className="flex-1 p-5">{children}</main>
+                <main className="flex-1 p-5 sm:p-8 md:p-10">{children}</main>
             </div>
         </div>
     );

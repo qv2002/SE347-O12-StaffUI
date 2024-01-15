@@ -74,12 +74,12 @@ function Customers() {
     }
     return (
         <>
-            <div className="container w-full">
-                <div className="flex space-x-4">
-                    {/* tite + reload btn */}
-                    <div className="flex">
+            <div className="container w-full sm:w-full md:w-full mx-auto">
+                <div className="flex flex-col sm:flex-row space-x-0 sm:space-x-4">
+                    {/* title + reload btn */}
+                    <div className="flex flex-col sm:flex-row space-x-0 sm:space-x-3">
                         <label className="text-2xl font-bold text-slate-800">Danh sách khách hàng</label>
-                        <button type="button" className="ml-3 text-gray-800 hover:underline">
+                        <button type="button" className="mt-2 sm:mt-0 text-gray-800 hover:underline">
                             <span className="font-sm pr-1">
                                 <i className="fa fa-refresh" aria-hidden="true"></i>
                             </span>
@@ -88,7 +88,7 @@ function Customers() {
                     </div>
 
                     {/* Action group */}
-                    <div className="flex grow">
+                    <div className="flex flex-col sm:flex-row mt-2 sm:mt-0 space-x-0 sm:space-x-2 grow">
                         {/* Search */}
                         <div className="mr-2 flex grow">
                             <input
@@ -103,7 +103,7 @@ function Customers() {
 
                         <Link
                             to="/customer/add"
-                            className={clsx('btn btn-md btn-green', {
+                            className={clsx('btn btn-md btn-green mt-2 sm:mt-0', {
                                 hidden: isHiddenItem('customer/create'),
                             })}
                         >
@@ -125,13 +125,13 @@ function Customers() {
                         </tr>
                     </thead>
 
-                    <tbody className="flex h-[75vh] w-full flex-col" style={{ overflowY: 'overlay' }}>
+                    <tbody className="flex h-[75vh] w-full flex-col overflow-y-scroll sm:overflow-y-auto">
                         {customers
                             .filter((customer) => {
                                 return search.toLowerCase() === ''
                                     ? customer
                                     : customer.name.toLowerCase().includes(search) ||
-                                          customer.phone.toLowerCase().includes(search);
+                                        customer.phone.toLowerCase().includes(search);
                             })
                             ?.reverse()
                             .map((customer, index) => (
@@ -140,30 +140,30 @@ function Customers() {
                                     className="flex min-h-[56px] cursor-pointer border-b border-slate-200 hover:bg-slate-100"
                                 >
                                     <td
-                                        className="flex w-20 items-center justify-end px-2"
+                                        className="flex w-20 items-center justify-end px-2 sm:px-4"
                                         onClick={() => LinkToDetail(customer.id)}
                                     >
                                         {customer.id}
                                     </td>
                                     <td
-                                        className="flex w-56 items-center justify-start px-2"
+                                        className="flex w-56 items-center justify-start px-2 sm:px-4"
                                         onClick={() => LinkToDetail(customer.id)}
                                     >
                                         {customer.name}
                                     </td>
                                     <td
-                                        className="flex w-36 items-center justify-center px-2"
+                                        className="flex w-36 items-center justify-center px-2 sm:px-4"
                                         onClick={() => LinkToDetail(customer.id)}
                                     >
                                         {customer.phone}
                                     </td>
                                     <td
-                                        className="flex flex-1 items-center justify-start px-2"
+                                        className="flex flex-1 items-center justify-start px-2 sm:px-4"
                                         onClick={() => LinkToDetail(customer.id)}
                                     >
                                         {customer.address}
                                     </td>
-                                    <td className="flex w-[200px] items-center justify-center px-2 py-2">
+                                    <td className="flex w-full sm:w-[200px] items-center justify-center px-2 sm:px-4 py-2">
                                         <div className="flex justify-end">
                                             <Link
                                                 to={'/customer/update/' + customer.id}
@@ -209,8 +209,8 @@ function Customers() {
                     }
                 )}
             >
-                <div className="">
-                    <div className="min-w-[160px] max-w-[400px] rounded-lg bg-white p-6">
+                <div className="w-full sm:w-3/4 md:w-1/2 mx-auto">
+                    <div className="min-w-[160px] sm:min-w-[200px] md:min-w-[300px] max-w-[400px] rounded-lg bg-white p-6">
                         <div className="text-clr-text-dark font-bold">Bạn có chắc chắn muốn xoá không?</div>
                         <p className="mt-4">Lưu ý: Bạn không thể không phục lại sau khi xoá!</p>
                         <div className="mt-4 flex">

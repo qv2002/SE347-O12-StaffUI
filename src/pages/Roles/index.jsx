@@ -60,23 +60,21 @@ function Roles() {
 
     return (
         <>
-            <div className="container">
-                <div className="flex space-x-4">
-                    <div className="flex">
-                        <label className="text-2xl font-bold text-slate-800">Danh sách chức vụ</label>
-                        <button type="button" className="ml-3 text-gray-800 hover:underline">
+            <div className="container mx-auto px-4 sm:px-6 md:px-8">
+                <div className="flex flex-col sm:flex-row space-x-0 sm:space-x-4">
+                    <div className="flex items-center space-x-2">
+                        <label className="text-lg sm:text-xl md:text-2xl font-bold text-slate-800">Danh sách chức vụ</label>
+                        <button type="button" className="ml-3 text-gray-800 hover:underline" onClick={() => getRoles()}>
                             <span className="font-sm pr-1">
                                 <i className="fa fa-refresh" aria-hidden="true"></i>
                             </span>
-                            <span className="" onClick={() => getRoles()}>
-                                Tải lại
-                            </span>
+                            <span>Tải lại</span>
                         </button>
                     </div>
 
-                    <div className="flex grow justify-between">
+                    <div className="flex flex-grow mt-2 sm:mt-0 justify-between">
                         <div></div>
-                        <Link to="/role/add" className="btn btn-md bg-green-600 hover:bg-green-500">
+                        <Link to="/role/add" className="btn btn-md sm:btn-lg md:btn-xl bg-green-600 hover:bg-green-500">
                             <span className="pr-1">
                                 <i className="fa-solid fa-circle-plus"></i>
                             </span>
@@ -121,7 +119,7 @@ function Roles() {
                                     <div className="flex justify-end" onClick={(e) => e.stopPropagation()}>
                                         <Link
                                             to={'/role/update/' + role.id}
-                                            className="btn btn-sm bg-blue-500 hover:bg-blue-400"
+                                            className="btn btn-sm sm:btn-md md:btn-lg bg-blue-500 hover:bg-blue-400"
                                         >
                                             <span className="pr-1">
                                                 <i className="fa-solid fa-pen-to-square"></i>
@@ -129,12 +127,10 @@ function Roles() {
                                             <span>Sửa</span>
                                         </Link>
                                         <button
-                                            className="btn btn-sm bg-red-500 hover:bg-red-400"
+                                            className="btn btn-sm sm:btn-md md:btn-lg bg-red-500 hover:bg-red-400"
                                             onClick={() => {
-                                                {
-                                                    setShowDeleteDialog(true);
-                                                    setDeletingRoleId(role.id);
-                                                }
+                                                setShowDeleteDialog(true);
+                                                setDeletingRoleId(role.id);
                                             }}
                                         >
                                             <span className="pr-1">
@@ -159,7 +155,7 @@ function Roles() {
                     }
                 )}
             >
-                <div className="">
+                <div className="w-full sm:w-3/4 md:w-1/2 lg:w-1/3 xl:w-1/4 mx-auto">
                     <div className="min-w-[160px] max-w-[400px] rounded-lg bg-white p-6">
                         <div className="text-clr-text-dark font-bold">Bạn có chắc chắn muốn xoá không?</div>
                         <p className="mt-4">Lưu ý: Bạn không thể không phục lại sau khi xoá!</p>
@@ -173,7 +169,10 @@ function Roles() {
                             >
                                 Quay lại
                             </button>
-                            <button className="btn btn-md btn-red" onClick={() => deleteRole(deletingRoleId)}>
+                            <button
+                                className="btn btn-md btn-red"
+                                onClick={() => deleteRole(deletingRoleId)}
+                            >
                                 Xoá
                             </button>
                         </div>

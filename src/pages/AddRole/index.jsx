@@ -104,10 +104,10 @@ function AddRole() {
     }
 
     return (
-        <div className="container h-[100%] min-w-[790px]">
-            <form className="mx-auto max-w-[800px]" onSubmit={roleForm.handleSubmit}>
-                <div className="mt-5 flex items-center justify-center space-x-4">
-                    <div className="w-[300px]">
+        <div className="container h-full sm:min-w-[790px] md:min-w-[800px]">
+            <form className="mx-auto max-w-full sm:max-w-[800px]" onSubmit={roleForm.handleSubmit}>
+                <div className="mt-5 flex flex-col sm:flex-row items-center justify-center space-x-0 sm:space-x-4">
+                    <div className="w-full sm:w-[300px] md:w-[400px]">
                         <label htmlFor="role-name" className="mb-2 inline-block font-semibold">
                             Chức vụ:
                         </label>
@@ -131,7 +131,7 @@ function AddRole() {
                             {roleForm.errors.name || 'No message'}
                         </span>
                     </div>
-                    <div className="flex-1">
+                    <div className="flex-1 sm:w-full md:w-[600px]">
                         <label htmlFor="role-description" className="mb-2 inline-block font-semibold">
                             Mô tả chức vụ:
                         </label>
@@ -157,8 +157,8 @@ function AddRole() {
                     </div>
                 </div>
 
-                <div className="mt-5 flex flex-row justify-center">
-                    <div className="m-auto !h-[400px] w-full overflow-y-scroll rounded border border-gray-300 px-5 py-5 text-lg">
+                <div className="mt-5 flex flex-col sm:flex-row justify-center">
+                    <div className="m-auto !h-[400px] w-full sm:w-[600px] md:w-[800px] overflow-y-scroll rounded border border-gray-300 px-5 py-5 text-lg">
                         {functions.map((func, index) => (
                             <div
                                 className="flex cursor-pointer items-center border-b border-slate-300 px-2 hover:bg-slate-100"
@@ -181,8 +181,8 @@ function AddRole() {
                     </div>
                 </div>
 
-                <div className="mt-5 flex items-center justify-between">
-                    <div className="flex cursor-pointer items-center text-lg">
+                <div className="mt-5 flex flex-col sm:flex-row items-center justify-between">
+                    <div className="flex cursor-pointer items-center text-lg mb-4 sm:mb-0">
                         <input
                             type="checkbox"
                             className="accent-blue-500"
@@ -195,7 +195,7 @@ function AddRole() {
                         </label>
                     </div>
 
-                    <div className="flex">
+                    <div className="flex mt-4 sm:mt-0">
                         <div
                             className={clsx('mr-3 flex items-center text-blue-500', {
                                 invisible: !loading,

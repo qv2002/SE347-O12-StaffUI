@@ -58,7 +58,7 @@ function Login() {
     return (
         <div>
             <section className="bg-gray-200 ">
-                <div className="mx-auto flex flex-col items-center justify-center px-6 py-8 md:h-screen lg:py-0">
+                <div className="mx-auto flex flex-col items-center justify-center px-6 py-8 sm:h-screen md:h-screen lg:py-0">
                     <a href="#" className="mb-6 flex items-center text-2xl font-semibold text-green-600 ">
                         <img
                             className="mr-2 h-8 w-8"
@@ -67,7 +67,7 @@ function Login() {
                         />
                         CỬA HÀNG CÂY XANH
                     </a>
-                    <div className=" w-[448px] rounded-lg bg-white shadow">
+                    <div className="w-full sm:w-[448px] md:w-[448px] rounded-lg bg-white shadow">
                         <div className="space-y-4 p-8">
                             <h1 className="text-center text-2xl font-semibold text-gray-900">Đăng nhập</h1>
                             <form onSubmit={bacsicForm.handleSubmit}>
@@ -122,7 +122,7 @@ function Login() {
 
                                 <button
                                     type="submit"
-                                    className="btn btn-blue btn-md mt-4 w-full"
+                                    className="btn btn-blue btn-md mt-4 w-full sm:w-full md:w-full"
                                     disabled={!bacsicForm.dirty || loading}
                                 >
                                     {!loading ? (

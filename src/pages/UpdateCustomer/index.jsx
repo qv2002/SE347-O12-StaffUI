@@ -92,19 +92,19 @@ function UpdateCustomer() {
     }
     return (
         <>
-            <div className="container">
+            <div className="container mx-auto px-4 sm:px-6 md:px-8">
                 <div className="w-full">
                     <form onSubmit={bacsicForm.handleSubmit}>
-                        <div className="mt-4 flex flex-row">
-                            <div className="mt-[4%] flex basis-1/2 flex-col">
+                        <div className="mt-4 flex flex-col sm:flex-row">
+                            <div className="mt-[4%] flex w-full sm:w-1/2 flex-col">
                                 <label className="mb-1 cursor-default text-lg font-semibold">Mã khách hàng</label>
                                 <div className="text-input disabled select-none py-[5px]">{customer.id}</div>
                             </div>
                         </div>
 
-                        <div className="mt-4 flex">
+                        <div className="mt-4 flex flex-col sm:flex-row">
                             {/* Name */}
-                            <div className="mr-8 flex w-1/2 flex-col space-y-2 text-lg">
+                            <div className="mr-8 flex w-full sm:w-1/2 flex-col space-y-2 text-lg">
                                 <div className="form-group flex flex-col ">
                                     <label className="mb-1 font-semibold" htmlFor="name">
                                         Tên khách hàng
@@ -155,7 +155,7 @@ function UpdateCustomer() {
                                     </span>
                                 </div>
 
-                                <div className="form-group flex basis-1/2 flex-col ">
+                                <div className="form-group flex w-full sm:w-1/2 flex-col ">
                                     <label htmlFor="date" className="mb-1 cursor-default text-lg font-semibold">
                                         Ngày chỉnh sửa
                                     </label>
@@ -167,8 +167,8 @@ function UpdateCustomer() {
                         </div>
 
                         {/* DATE AND PRICE */}
-                        <div className="mt-4 flex">
-                            <div className="mt-3 flex w-full flex-col">
+                        <div className="mt-4 flex flex-col sm:flex-row">
+                            <div className="mt-3 flex w-full sm:w-1/2 flex-col">
                                 <label className="mb-1 text-lg font-semibold" htmlFor="address">
                                     Địa chỉ
                                 </label>
@@ -196,7 +196,7 @@ function UpdateCustomer() {
                             </div>
                         </div>
 
-                        <div className="mt-6 flex items-center justify-between border-t pt-6">
+                        <div className="mt-6 flex flex-col sm:flex-row items-center justify-between border-t pt-6">
                             <div
                                 className={clsx('flex items-center text-blue-500', {
                                     invisible: !loading,
@@ -205,7 +205,7 @@ function UpdateCustomer() {
                                 <i className="fa-solid fa-spinner animate-spin text-xl"></i>
                                 <span className="text-lx pl-3 font-medium">Đang tạo thông tin khách hàng</span>
                             </div>
-                            <div className="flex">
+                            <div className="flex mt-4 sm:mt-0">
                                 <Link to={'/customer'} className="btn btn-red btn-md">
                                     <span className="pr-2">
                                         <i className="fa-solid fa-circle-xmark"></i>

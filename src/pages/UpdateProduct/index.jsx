@@ -100,19 +100,17 @@ function UpdateProduct() {
 
     return (
         <div>
-            <div className="container">
+            <div className="container mx-auto px-4 sm:px-6 md:px-8">
                 <div className="w-full">
                     <form onSubmit={bacsicForm.handleSubmit}>
                         {/* Id, Date ang image */}
-                        <div className="flex flex-row">
+                        <div className="flex flex-col sm:flex-row">
                             {/* ID   and date*/}
-                            <div className="mr-12 mt-[4%] flex basis-1/2 flex-col">
+                            <div className="mr-0 sm:mr-12 mt-4 flex flex-col w-full sm:w-1/2">
                                 <label className="mb-1 cursor-default text-lg font-semibold">Mã số</label>
-
                                 <div id="name" className="text-input disabled select-none py-[5px]">
                                     {product.id}
                                 </div>
-
                                 <label className="mt-10 mb-1 cursor-default text-lg font-semibold">
                                     Ngày chỉnh sửa
                                 </label>
@@ -121,15 +119,15 @@ function UpdateProduct() {
                                 </div>
                             </div>
                             {/* Image */}
-                            <div className="form-group w-1/2 flex-col items-center justify-items-center ">
+                            <div className="form-group w-full sm:w-1/2 flex-col items-center justify-items-center ">
                                 <ImageInput formik={bacsicForm} forikField="image" />
                             </div>
                         </div>
 
                         {/* type and name */}
-                        <div className="mt-10 flex flex-row">
+                        <div className="mt-10 flex flex-col sm:flex-row">
                             {/* Type */}
-                            <div className="mr-12 mt-2 flex basis-1/2 flex-col">
+                            <div className="mr-0 sm:mr-12 mt-2 flex flex-col w-full sm:w-1/2">
                                 <label className="mb-1 text-lg font-semibold" htmlFor="type">
                                     Loại cây
                                 </label>
@@ -154,7 +152,7 @@ function UpdateProduct() {
                             </div>
 
                             {/* Name */}
-                            <div className="mt-2 flex basis-1/2 flex-col">
+                            <div className="mt-2 flex flex-col w-full sm:w-1/2">
                                 <label className="mb-1 text-lg font-semibold" htmlFor="name">
                                     Tên cây
                                 </label>
@@ -180,9 +178,9 @@ function UpdateProduct() {
                         </div>
 
                         {/* Quanlity and Price */}
-                        <div className="flex flex-row">
+                        <div className="flex flex-col sm:flex-row">
                             {/* Quantity */}
-                            <div className="mr-12 mt-2 flex basis-1/2 flex-col">
+                            <div className="mt-2 sm:mr-12 flex flex-col w-full sm:w-1/2">
                                 <label className="mb-1 text-lg font-semibold" htmlFor="quantity">
                                     Số lượng
                                 </label>
@@ -208,7 +206,7 @@ function UpdateProduct() {
                             </div>
 
                             {/* PRICE */}
-                            <div className="mt-2 flex basis-1/2 flex-col">
+                            <div className="mt-2 flex flex-col w-full sm:w-1/2">
                                 <label className="mb-1 text-lg font-semibold" htmlFor="price">
                                     Giá mỗi cây
                                 </label>
@@ -232,7 +230,7 @@ function UpdateProduct() {
                             </div>
                         </div>
 
-                        <div className=" flex items-center justify-between border-t pt-6">
+                        <div className="mt-6 flex flex-col sm:flex-row items-center justify-between border-t pt-6">
                             <div
                                 className={clsx('flex items-center text-blue-500', {
                                     invisible: !loading,
@@ -241,7 +239,7 @@ function UpdateProduct() {
                                 <i className="fa-solid fa-spinner animate-spin text-lg"></i>
                                 <span className="text-lx pl-3 font-medium">Đang chỉnh sửa sản phẩm</span>
                             </div>
-                            <div className="flex">
+                            <div className="mt-4 sm:mt-0 flex">
                                 <Link to={'/product'} className="btn btn-red btn-md">
                                     <span className="pr-2">
                                         <i className="fa-solid fa-circle-xmark"></i>

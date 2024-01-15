@@ -100,11 +100,11 @@ function UpdateAccount() {
 
     return (
         <>
-            <div className="container">
+            <div className="container mx-auto px-4 sm:px-6 md:px-8">
                 <div className="w-full">
                     <form onSubmit={bacsicForm.handleSubmit}>
-                        <div className="mt-4 flex">
-                            <div className="mr-8 flex w-1/2 flex-col space-y-2 text-lg">
+                        <div className="mt-4 flex flex-col sm:flex-row">
+                            <div className="mr-8 flex w-full sm:w-1/2 flex-col space-y-2 text-lg">
                                 <div className="form-group flex flex-col ">
                                     <label htmlFor="name" className="mb-1 select-none  font-semibold text-gray-900  ">
                                         Tên nhân viên
@@ -132,8 +132,8 @@ function UpdateAccount() {
                                         {bacsicForm.errors.name || 'No message'}
                                     </span>
                                 </div>
-                                <div className="form-group flex flex-col">
-                                    <label htmlFor="email" className="mb-1 select-none  font-semibold text-gray-900  ">
+                                <div className="form-group flex flex-col sm:w-full md:w-1/2">
+                                    <label htmlFor="email" className="mb-1 select-none font-semibold text-gray-900">
                                         Địa chỉ email
                                     </label>
                                     <input
@@ -141,7 +141,7 @@ function UpdateAccount() {
                                         name="email"
                                         id="email"
                                         className={clsx(
-                                            'focus:ring-primary-600 focus:border-primary-600 block w-full rounded-lg border border-gray-300  p-2.5 text-gray-900    sm:text-sm',
+                                            'focus:ring-primary-600 focus:border-primary-600 block w-full rounded-lg border border-gray-300 p-2.5 text-gray-900 sm:text-sm',
                                             {
                                                 invalid: bacsicForm.touched.email && bacsicForm.errors.email,
                                             }
@@ -159,8 +159,8 @@ function UpdateAccount() {
                                         {bacsicForm.errors.email || 'No message'}
                                     </span>
                                 </div>
-                                <div className="form-group flex flex-col">
-                                    <label className="mb-1 select-none  font-semibold text-gray-900 " htmlFor="role">
+                                <div className="form-group flex flex-col sm:w-full md:w-1/2">
+                                    <label className="mb-1 select-none font-semibold text-gray-900" htmlFor="role">
                                         Chức vụ
                                     </label>
 
@@ -184,7 +184,7 @@ function UpdateAccount() {
                                     </span>
                                 </div>
                             </div>
-                            <div className="mr-8 flex w-1/2 flex-col space-y-2 text-lg">
+                            <div className="mr-8 flex w-full sm:w-1/2 flex-col space-y-2 text-lg">
                                 <div className="form-group flex flex-col ">
                                     <label
                                         htmlFor="username"
@@ -221,8 +221,8 @@ function UpdateAccount() {
                                 </div>
                             </div>
                         </div>
-                        <div className="mt-4 flex">
-                            <div className="form-group mr-4 mt-3 flex basis-1/2 flex-col ">
+                        <div className="mt-4 flex flex-col sm:flex-row">
+                            <div className="form-group mr-4 mt-3 flex w-full sm:w-1/2 flex-col ">
                                 <label className="mb-1 cursor-default select-none text-lg font-semibold">
                                     Ngày chỉnh sửa
                                 </label>
@@ -231,7 +231,7 @@ function UpdateAccount() {
                                 </div>
                             </div>
                         </div>
-                        <div className="mt-6 flex items-center justify-between border-t pt-6">
+                        <div className="mt-6 flex flex-col sm:flex-row items-center justify-between border-t pt-6">
                             <div
                                 className={clsx('flex items-center text-blue-500', {
                                     invisible: !loading,

@@ -76,13 +76,13 @@ function UpdateProductType() {
 
     return (
         <>
-            <div className="container min-w-[650px]">
+            <div className="container sm:min-w-[650px] mx-auto px-4 sm:px-6 md:px-8">
                 <div className="w-full">
                     <form
                         onSubmit={bacsicForm.handleSubmit}
-                        className="mx-[10%]  rounded-xl border border-slate-300 p-5"
+                        className="mx-auto sm:mx-[10%] rounded-xl border border-slate-300 p-5"
                     >
-                        <div className="mt-10 flex items-center justify-center">
+                        <div className="mt-10 flex flex-col sm:items-center justify-center">
                             <div className="flex w-full flex-col space-y-2 text-lg">
                                 <div className="form-group flex flex-col">
                                     <label className="mb-1 cursor-default text-lg font-semibold">
@@ -125,7 +125,7 @@ function UpdateProductType() {
                             </div>
                         </div>
 
-                        <div className="mt-6 flex items-center justify-between border-t pt-6">
+                        <div className="mt-6 flex flex-col sm:flex-row items-center justify-between border-t pt-6">
                             <div
                                 className={clsx('flex items-center text-blue-500', {
                                     invisible: !loading,
@@ -134,7 +134,7 @@ function UpdateProductType() {
                                 <i className="fa-solid fa-spinner animate-spin text-xl"></i>
                                 <span className="text-lx pl-3 font-medium">Đang chỉnh sửa thông tin loại sản phẩm</span>
                             </div>
-                            <div className="flex justify-end">
+                            <div className="mt-4 sm:mt-0 flex justify-end">
                                 <Link to={'/product-type'} className="btn btn-red btn-md">
                                     <span className="pr-2">
                                         <i className="fa-solid fa-circle-xmark"></i>

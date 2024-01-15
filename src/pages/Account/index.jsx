@@ -115,12 +115,12 @@ function Accounts() {
     return (
         <>
             <div className="container w-full">
-                <div className="flex space-x-4">
+                <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
                     {/* tite + reload btn */}
                     <div className="flex">
-                        <label className="text-2xl font-bold text-slate-800">Danh sách tài khoản</label>
+                        <label className="text-xl sm:text-2xl md:text-3xl font-bold text-slate-800">Danh sách tài khoản</label>
                         <button type="button" className="ml-3 text-gray-800 hover:underline">
-                            <span className="font-sm pr-1">
+                            <span className="font-sm pr-1 sm:text-base md:text-lg">
                                 <i className="fa fa-refresh" aria-hidden="true"></i>
                             </span>
                             <span className="">Tải lại</span>
@@ -133,7 +133,7 @@ function Accounts() {
                         <div className="mr-2 flex grow">
                             <input
                                 type="text"
-                                className="text-input grow"
+                                className="text-input grow sm:text-base md:text-lg"
                                 onChange={(e) => {
                                     setSearch(e.target.value);
                                 }}
@@ -142,24 +142,24 @@ function Accounts() {
                         </div>
                     </div>
 
-                    <Link to="/account/add" className="btn btn-md bg-green-600 hover:bg-green-500">
+                    <Link to="/account/add" className="btn btn-md bg-green-600 hover:bg-green-500 text-sm sm:text-base md:text-lg">
                         <span className="pr-1">
                             <i className="fa fa-share"></i>
                         </span>
                         <span>Thêm tài khoản</span>
                     </Link>
-                </div>
-                <table className="mt-8 w-full">
-                    <thead className="w-full rounded bg-blue-500 text-white">
-                        <tr className="flex h-11 w-full">
-                            <th className="flex w-20 items-center justify-center px-2">Mã số</th>
-                            <th className="flex w-36 items-center justify-start px-2">Tên tài khoản</th>
-                            <th className="flex w-56 items-center justify-start px-2">Tên nhân viên</th>
-                            <th className="flex flex-1 items-center justify-start px-2">Địa chỉ email </th>
-                            <th className="flex flex-1 items-center justify-start px-2">Chức vụ</th>
-                            <th className="flex w-[200px] items-center justify-center px-2"></th>
-                        </tr>
-                    </thead>
+                    </div>
+                    <table className="mt-8 w-full">
+                        <thead className="w-full rounded bg-blue-500 text-white">
+                            <tr className="flex h-11 w-full">
+                                <th className="flex w-20 items-center justify-center px-2 text-sm sm:text-base md:text-lg">Mã số</th>
+                                <th className="flex w-36 items-center justify-start px-2 text-sm sm:text-base md:text-lg">Tên tài khoản</th>
+                                <th className="flex w-56 items-center justify-start px-2 text-sm sm:text-base md:text-lg">Tên nhân viên</th>
+                                <th className="flex flex-1 items-center justify-start px-2 text-sm sm:text-base md:text-lg">Địa chỉ email </th>
+                                <th className="flex flex-1 items-center justify-start px-2 text-sm sm:text-base md:text-lg">Chức vụ</th>
+                                <th className="flex w-[200px] items-center justify-center px-2 text-sm sm:text-base md:text-lg"></th>
+                            </tr>
+                        </thead>
 
                     <tbody className="flex h-[75vh] w-full flex-col" style={{ overflowY: 'overlay' }}>
                         {renderAccounts.reverse().map((account) => (
@@ -168,36 +168,36 @@ function Accounts() {
                                 className="flex min-h-[56px] cursor-pointer border-b border-slate-200 hover:bg-slate-100"
                             >
                                 <td
-                                    className="flex w-20 items-center justify-center px-2"
+                                    className="flex w-20 items-center justify-center px-2 text-sm sm:text-base md:text-lg"
                                     onClick={() => LinkToDetail(account.id)}
                                 >
                                     {account.id}
                                 </td>
                                 <td
-                                    className="flex w-36 items-center justify-start px-2"
+                                    className="flex w-36 items-center justify-start px-2 text-sm sm:text-base md:text-lg"
                                     onClick={() => LinkToDetail(account.id)}
                                 >
                                     {account.username}
                                 </td>
                                 <td
-                                    className="flex w-56 items-center justify-start px-2"
+                                    className="flex w-56 items-center justify-start px-2 text-sm sm:text-base md:text-lg"
                                     onClick={() => LinkToDetail(account.id)}
                                 >
                                     {account.name}
                                 </td>
                                 <td
-                                    className="flex flex-1 items-center justify-start px-2"
+                                    className="flex flex-1 items-center justify-start px-2 text-sm sm:text-base md:text-lg"
                                     onClick={() => LinkToDetail(account.id)}
                                 >
                                     {account.email}
                                 </td>
                                 <td
-                                    className="flex flex-1 items-center justify-start px-2"
+                                    className="flex flex-1 items-center justify-start px-2 text-sm sm:text-base md:text-lg"
                                     onClick={() => LinkToDetail(account.id)}
                                 >
                                     {account.role?.name || '-'}
                                 </td>
-                                <td className="flex w-[200px] items-center justify-center px-2 py-2">
+                                <td className="flex w-[200px] items-center justify-center px-2 py-2 text-sm sm:text-base md:text-lg">
                                     <div className="flex justify-end">
                                         <Link to={'/account/update/' + account.id} className="btn btn-sm btn-blue">
                                             <span className="pr-1">
@@ -237,12 +237,12 @@ function Accounts() {
                 )}
             >
                 <div className="">
-                    <div className="min-w-[160px] max-w-[400px] rounded-lg bg-white p-6">
-                        <div className="text-clr-text-dark font-bold">Bạn có chắc chắn muốn xoá không?</div>
-                        <p className="mt-4">Lưu ý: Bạn không thể không phục lại sau khi xoá!</p>
+                    <div className="min-w-[160px] sm:min-w-[200px] md:min-w-[300px] max-w-[400px] rounded-lg bg-white p-6">
+                        <div className="text-clr-text-dark font-bold text-sm sm:text-base md:text-lg">Bạn có chắc chắn muốn xoá không?</div>
+                        <p className="mt-4 text-sm sm:text-base md:text-lg">Lưu ý: Bạn không thể không phục lại sau khi xoá!</p>
                         <div className="mt-4 flex">
                             <button
-                                className="btn btn-blue btn-md"
+                                className="btn btn-blue btn-md text-sm sm:text-base md:text-lg"
                                 onClick={() => {
                                     setDeletingAccountId(null);
                                     setShowDeleteDialog(false);
@@ -250,7 +250,7 @@ function Accounts() {
                             >
                                 Quay lại
                             </button>
-                            <button className="btn btn-md btn-red" onClick={() => deleteAccount(deletingAccountId)}>
+                            <button className="btn btn-md btn-red text-sm sm:text-base md:text-lg" onClick={() => deleteAccount(deletingAccountId)}>
                                 Xoá
                             </button>
                         </div>

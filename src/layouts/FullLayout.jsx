@@ -3,7 +3,7 @@ import Sidebar from "./components/Sidebar";
 
 function FullLayout({ children }) {
     return (
-        <div className="h-screen">
+        <div className="flex-1 p-5 sm:p-8 md:p-10">
             {children}
         </div>
     );

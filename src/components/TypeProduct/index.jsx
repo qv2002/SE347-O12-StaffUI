@@ -33,7 +33,7 @@ function TypeProduct({ onChange, invalid = false }) {
                     })}
                 >
                     <div
-                        className={clsx('mr-2 flex-1 ', {
+                        className={clsx('mr-2 flex-1 text-sm sm:text-base md:text-lg', {
                             'opacity-50': !selectedProductType.name,
                         })}
                     >

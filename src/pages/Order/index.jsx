@@ -96,10 +96,10 @@ function Orders() {
 
     return (
         <>
-            <div className="container">
-                <div className="flex space-x-4">
-                    {/* tite + reload btn */}
-                    <div className="flex">
+           <div className="container mx-auto px-4 sm:px-6 md:px-8">
+                <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                    {/* title + reload btn */}
+                    <div className="flex items-center space-x-2">
                         <label className="text-2xl font-bold text-slate-800">Danh sách hóa đơn</label>
                         <button
                             type="button"
@@ -114,9 +114,9 @@ function Orders() {
                     </div>
 
                     {/* Action group */}
-                    <div className="flex grow">
+                    <div className="flex flex-col sm:flex-row grow space-y-2 sm:space-y-0 sm:space-x-2">
                         {/* Search */}
-                        <div className="mr-2 flex grow">
+                        <div className="flex space-x-2 grow">
                             <div
                                 className={clsx(
                                     'ml-1 cursor-pointer rounded p-2 text-blue-600 transition hover:bg-gray-100',
@@ -166,43 +166,43 @@ function Orders() {
                     </div>
                 </div>
 
-                {/* LIST */}
-                <table className="mt-8 w-full">
-                    <thead className="w-full rounded bg-blue-500 text-white">
-                        <tr className="flex h-11 w-full">
-                            <th className="flex w-16 items-center justify-end px-2">Mã</th>
-                            <th className="flex flex-[2] items-center justify-start px-4">Tên khách hàng</th>
-                            <th className="flex w-60 items-center justify-start px-2">Số điện thoại</th>
-                            <th className="flex w-44 items-center justify-end px-2">Tổng tiền (VNĐ)</th>
-                            <th className="flex w-56 items-center justify-end px-2">Ngày</th>
-                            <th className="flex w-[140px] items-center justify-center px-2"></th>
-                        </tr>
-                    </thead>
+               {/* LIST */}
+                <div className="mt-8 w-full sm:w-full md:w-full">
+                    <div className="rounded bg-blue-500 text-white">
+                        <div className="flex h-11 w-full">
+                        <div className="flex w-16 items-center justify-end px-2">Mã</div>
+                        <div className="flex flex-[2] items-center justify-start px-4">Tên khách hàng</div>
+                        <div className="hidden sm:flex w-60 items-center justify-start px-2">Số điện thoại</div>
+                        <div className="hidden sm:flex w-44 items-center justify-end px-2">Tổng tiền (VNĐ)</div>
+                        <div className="hidden sm:flex w-56 items-center justify-end px-2">Ngày</div>
+                        <div className="flex w-[140px] items-center justify-center px-2"></div>
+                        </div>
+                    </div>
 
-                    <tbody className="flex h-[75vh] w-full flex-col" style={{ overflowY: 'overlay' }}>
+                    <div className="flex h-[75vh] w-full flex-col overflow-y-scroll sm:overflow-y-auto">
                         {orders
                             ?.filter((order) => checkDateInFilter(order))
                             ?.reverse()
                             .map((order) => (
-                                <tr
+                                <div
                                     key={order.id}
                                     className="flex min-h-[56px] cursor-pointer border-b border-slate-200 hover:bg-slate-100"
                                     onClick={() => linkToDetail(order.id)}
                                 >
-                                    <td className="flex w-16 items-center justify-end px-2 py-2">{order.id}</td>
-                                    <td className="flex flex-[2] items-center justify-start px-4 py-2">
+                                    <div className="flex w-16 items-center justify-end px-2 py-2">{order.id}</div>
+                                    <div className="flex flex-[2] items-center justify-start px-4 py-2">
                                         {order.customer?.name}
-                                    </td>
-                                    <td className="flex w-60 items-center justify-start px-2 py-2">
+                                    </div>
+                                    <div className="flex w-60 items-center justify-start px-2 py-2">
                                         {order.customer?.phone}
-                                    </td>
-                                    <td className="flex w-44 items-center justify-end px-2 py-2">
+                                    </div>
+                                    <div className="flex w-44 items-center justify-end px-2 py-2">
                                         <PriceFormat>{order.totalPrice}</PriceFormat>
-                                    </td>
-                                    <td className="flex w-56 items-center justify-end px-2 py-2">
+                                    </div>
+                                    <div className="flex w-56 items-center justify-end px-2 py-2">
                                         {moment(order.createdAt).format('HH:mm:ss DD/MM/YYYY ')}
-                                    </td>
-                                    <td className="flex w-[140px] items-center justify-center px-2 py-2">
+                                    </div>
+                                    <div className="flex w-[140px] items-center justify-center px-2 py-2">
                                         <div className="flex justify-end">
                                             <button
                                                 className={clsx('btn btn-sm btn-red', {
@@ -222,39 +222,39 @@ function Orders() {
                                                 <span>Xoá</span>
                                             </button>
                                         </div>
-                                    </td>
-                                </tr>
+                                    </div>
+                                </div>
                             ))}
-                    </tbody>
-                </table>
-            </div>
+                    </div>
+                </div>
 
-            {/* DELETE DIALOG */}
-            <div
-                className={clsx(
-                    'fixed inset-0 z-[99999] hidden items-center justify-center bg-black/20 opacity-0 transition-opacity',
-                    {
-                        '!flex !opacity-100': showDeleteDialog,
-                    }
-                )}
-            >
-                <div className="">
-                    <div className="min-w-[160px] max-w-[400px] rounded-lg bg-white p-6">
-                        <div className="text-clr-text-dark font-bold">Bạn có chắc chắn muốn xoá không?</div>
-                        <p className="mt-4">Lưu ý: Bạn không thể không phục lại sau khi xoá!</p>
-                        <div className="mt-4 flex">
-                            <button
-                                className="btn btn-blue btn-md"
-                                onClick={() => {
-                                    setDeletingOrderId(null);
-                                    setShowDeleteDialog(false);
-                                }}
-                            >
-                                Quay lại
-                            </button>
-                            <button className="btn btn-md btn-red" onClick={() => deleteOrder(deletingOrderId)}>
-                                Xoá
-                            </button>
+                {/* DELETE DIALOG */}
+                <div
+                    className={clsx(
+                        'fixed inset-0 z-[99999] hidden items-center justify-center bg-black/20 opacity-0 transition-opacity',
+                        {
+                            '!flex !opacity-100': showDeleteDialog,
+                        }
+                    )}
+                >
+                    <div className="">
+                        <div className="min-w-[160px] max-w-[400px] rounded-lg bg-white p-6">
+                            <div className="text-clr-text-dark font-bold">Bạn có chắc chắn muốn xoá không?</div>
+                            <p className="mt-4">Lưu ý: Bạn không thể không phục lại sau khi xoá!</p>
+                            <div className="mt-4 flex">
+                                <button
+                                    className="btn btn-blue btn-md"
+                                    onClick={() => {
+                                        setDeletingOrderId(null);
+                                        setShowDeleteDialog(false);
+                                    }}
+                                >
+                                    Quay lại
+                                </button>
+                                <button className="btn btn-md btn-red" onClick={() => deleteOrder(deletingOrderId)}>
+                                    Xoá
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
